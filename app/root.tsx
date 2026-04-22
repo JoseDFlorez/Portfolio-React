@@ -13,6 +13,7 @@ import {
 import { useMemo } from "react";
 import { I18nextProvider, useTranslation } from "react-i18next";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -81,6 +82,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ScrollRestoration nonce={cspNonce} />
         <Scripts nonce={cspNonce} />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
