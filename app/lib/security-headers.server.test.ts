@@ -29,13 +29,13 @@ describe("buildSecurityHeaders", () => {
   it("adds HSTS in production and tightens script-src", async () => {
     process.env.NODE_ENV = "production";
     const { buildSecurityHeaders } = await import("./security-headers.server");
-    const headers = buildSecurityHeaders();
+    const headers = buildSecurityHeaders({ scriptNonce: "abc123" });
     expect(headers["Strict-Transport-Security"]).toContain("max-age=");
     const csp = headers["Content-Security-Policy"]!;
     const scriptSrc = csp
       .split(";")
       .map((p) => p.trim())
       .find((p) => p.startsWith("script-src"));
-    expect(scriptSrc).toBe("script-src 'self'");
+    expect(scriptSrc).toBe("script-src 'self' 'nonce-abc123'");
   });
 });

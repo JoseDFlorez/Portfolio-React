@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
   useLoaderData,
   useMatches,
+  useRouteLoaderData,
   useRouteError,
 } from "react-router";
 import { useMemo } from "react";
@@ -18,6 +19,7 @@ import { themeInitScript } from "~/hooks/use-theme";
 import { SiteShell } from "~/components/layout/site-shell";
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { getBuildInfo, type BuildInfo } from "~/lib/build-info.server";
+import { createCspNonce } from "~/lib/security-headers.server";
 import {
   DEFAULT_LOCALE,
   isSupportedLocale,
@@ -40,8 +42,8 @@ export const links: Route.LinksFunction = () => [
   { rel: "manifest", href: "/site.webmanifest" },
 ];
 
-export async function loader(): Promise<{ build: BuildInfo }> {
-  return { build: getBuildInfo() };
+export async function loader(): Promise<{ build: BuildInfo; cspNonce: string }> {
+  return { build: getBuildInfo(), cspNonce: createCspNonce() };
 }
 
 function resolveLocaleFromMatches(
@@ -59,6 +61,8 @@ function resolveLocaleFromMatches(
 export function Layout({ children }: { children: React.ReactNode }) {
   const matches = useMatches();
   const locale = resolveLocaleFromMatches(matches);
+  const rootData = useRouteLoaderData<typeof loader>("root");
+  const cspNonce = rootData?.cspNonce;
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
@@ -66,12 +70,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          nonce={cspNonce}
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
       </head>
       <body>
         {children}
-        <ScrollRestoration />
-        <Scripts />
+        <ScrollRestoration nonce={cspNonce} />
+        <Scripts nonce={cspNonce} />
       </body>
     </html>
   );

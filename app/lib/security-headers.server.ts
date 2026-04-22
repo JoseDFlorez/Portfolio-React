@@ -1,14 +1,27 @@
 import { env } from "./env.server";
 
-export function buildSecurityHeaders(): Record<string, string> {
+type SecurityHeaderOptions = {
+  scriptNonce?: string;
+};
+
+export function createCspNonce(): string {
+  return crypto.randomUUID().replace(/-/g, "");
+}
+
+export function buildSecurityHeaders(
+  options: SecurityHeaderOptions = {},
+): Record<string, string> {
   const isProd = env.NODE_ENV === "production";
+  const prodScriptSrc = options.scriptNonce
+    ? `script-src 'self' 'nonce-${options.scriptNonce}'`
+    : "script-src 'self'";
 
   const csp = [
     "default-src 'self'",
     "img-src 'self' data: blob:",
     "font-src 'self' https://fonts.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    isProd ? "script-src 'self'" : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    isProd ? prodScriptSrc : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "connect-src 'self' https://api.resend.com" + (isProd ? "" : " ws: wss:"),
     "frame-ancestors 'none'",
     "base-uri 'self'",
@@ -31,8 +44,11 @@ export function buildSecurityHeaders(): Record<string, string> {
   return headers;
 }
 
-export function applySecurityHeaders(responseHeaders: Headers) {
-  for (const [key, value] of Object.entries(buildSecurityHeaders())) {
+export function applySecurityHeaders(
+  responseHeaders: Headers,
+  options: SecurityHeaderOptions = {},
+) {
+  for (const [key, value] of Object.entries(buildSecurityHeaders(options))) {
     responseHeaders.set(key, value);
   }
 }

@@ -146,6 +146,9 @@ vite.config.ts.timestamp-*
 /.react-router/
 /build/
 
+# Vercel
+.vercel/
+
 # Claude Code / agents
 .agents/
 .claude/

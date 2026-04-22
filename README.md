@@ -1,87 +1,124 @@
-# Welcome to React Router!
+# Jose David Florez Portfolio
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Personal portfolio for Jose David Florez Navarrete, built as a server-rendered React Router app with bilingual routes, project case studies, a contact form, and production health checks.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Stack
 
-## Features
+- React 19 and React Router 7 framework mode
+- TypeScript
+- Tailwind CSS 4 with shadcn/ui-style primitives
+- i18next for English and Spanish content
+- Vitest for unit tests
+- Playwright for end-to-end tests
+- Vercel React Router preset for deployment
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Routes
+
+- `/` redirects to the preferred locale.
+- `/en` and `/es` render the home page.
+- `/en/about` and `/es/about` render the profile, experience, education, and skills.
+- `/en/projects` and `/es/projects` list the project archive.
+- `/en/projects/:projectId` and `/es/projects/:projectId` render project details.
+- `/en/contact` and `/es/contact` render the contact form.
+- `/api/health` returns a production health payload.
 
 ## Getting Started
 
-### Installation
-
-Install the dependencies:
+Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
-### Development
-
-Start the development server with HMR:
+Start the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+The app runs at `http://localhost:5173`.
 
-## Building for Production
+## Environment
 
-Create a production build:
+Create a local `.env` from `.env.example` and fill only the values you need.
 
 ```bash
-npm run build
+NODE_ENV=development
+RESEND_API_KEY=
+MAIL_FROM="Portfolio <noreply@example.com>"
+MAIL_TO=jose.david.florez.navarrete@gmail.com
+COMMIT_SHA=
+SITE_URL=http://localhost:5173
+```
+
+Without `RESEND_API_KEY`, the mail layer falls back to the local logger path in development.
+
+## Quality Gates
+
+Run type generation and TypeScript checks:
+
+```bash
+pnpm typecheck
+```
+
+Run unit tests:
+
+```bash
+pnpm test
+```
+
+Build for production:
+
+```bash
+pnpm build
+```
+
+Serve the production build locally:
+
+```bash
+pnpm start
+```
+
+Run end-to-end tests:
+
+```bash
+pnpm test:e2e
 ```
 
 ## Deployment
 
-### Docker Deployment
+This app targets Vercel. It uses `@vercel/react-router` in `react-router.config.ts` and the Vercel server entry helper in `app/entry.server.tsx`, so the SSR routes, actions, and `/api/health` route can run as Vercel Functions.
 
-To build and run using Docker:
+Import the GitHub repository in Vercel and use:
+
+- Install command: `pnpm install --frozen-lockfile`
+- Build command: `pnpm build`
+- Output directory: leave empty
+
+Set these production environment variables in Vercel:
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+RESEND_API_KEY=
+MAIL_FROM="Portfolio <noreply@example.com>"
+MAIL_TO=jose.david.florez.navarrete@gmail.com
+SITE_URL=https://your-domain.example
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+Optional build metadata:
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+```bash
+COMMIT_SHA=
 ```
 
-## Styling
+After each deploy, smoke test:
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+```bash
+curl -I https://your-domain.example
+curl https://your-domain.example/api/health
+```
 
----
+Rollback by promoting the last known good deployment in Vercel, then rerun the smoke checks.
 
-Built with ❤️ using React Router.
+## Notes
+
+Do not deploy this repository root through GitHub Pages. This is an SSR React Router app, so GitHub Pages would only serve static files and would not run the contact action, health route, or server rendering.
