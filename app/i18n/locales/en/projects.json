@@ -1,0 +1,95 @@
+{
+  "list": {
+    "label": "Projects",
+    "suffix": "Selected work",
+    "h1": "Things I've shipped.",
+    "lede": "A curated slice of projects across backend, fullstack, mobile, and frontend. Older bootcamp exercises live in the archive below.",
+    "stack_separator": " · ",
+    "row": {
+      "read": "Read"
+    }
+  },
+  "filter": {
+    "all": "All",
+    "label": "Filter",
+    "count_all": "{{count}} total",
+    "count_filtered": "{{count}} of {{total}}"
+  },
+  "categories": {
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "mobile": "Mobile",
+    "frontend": "Frontend"
+  },
+  "archive": {
+    "title": "Archive — earlier exercises",
+    "helper": "Bootcamp and one-off projects kept for transparency. Titles only; no detail pages.",
+    "items": ["Hamburguesas Artesanales", "The Chachipun", "Liga Betplay", "Event Concert"]
+  },
+  "detail": {
+    "stack_heading": "Stack",
+    "plate_prefix": "§ Plate",
+    "sibling_prev": "Previous",
+    "sibling_next": "Next"
+  },
+  "titles": {
+    "spacex-explorer": "SpaceX Explorer",
+    "sgci-app": "SGCI Inventory System",
+    "campuslove": "CampusLove",
+    "todo-list-flask": "Task List Web App",
+    "formula1-webcomponents": "Formula 1 Simulator"
+  },
+  "roles": {
+    "spacex-explorer": "Mobile Developer",
+    "sgci-app": "Backend Developer",
+    "campuslove": "Backend Developer",
+    "todo-list-flask": "Fullstack Developer",
+    "formula1-webcomponents": "Frontend Developer"
+  },
+  "summaries": {
+    "spacex-explorer": "Native Android app that browses SpaceX launch, rocket, and crew data through the public v4 API, organized around Clean Architecture with Hilt-driven DI and Kotlin Coroutines.",
+    "sgci-app": ".NET Core CLI business application that manages purchase workflows, stock, third-party relationships, promotional plans, cash registers, and customizable transactions.",
+    "campuslove": "Matchmaking simulator backed by PostgreSQL. Users create profiles, browse a match feed, and interact through a modular architecture focused on persistence and data shape.",
+    "todo-list-flask": "Flask task-management web app with user registration, login, and persistent per-user to-do lists backed by SQLite, deployed to PythonAnywhere.",
+    "formula1-webcomponents": "Interactive Formula 1 management and 3D-simulation app. Manage teams, drivers, and vehicles, then run circuit simulations rendered with Three.js — all composed from native Web Components."
+  },
+  "thumbnail_alt": {
+    "spacex-explorer": "Editorial placeholder for SpaceX Explorer screenshot pending capture.",
+    "sgci-app": "SGCI inventory CLI screenshot.",
+    "campuslove": "CampusLove console application screenshot.",
+    "todo-list-flask": "Task list Flask web app screenshot.",
+    "formula1-webcomponents": "Formula 1 simulator web app screenshot."
+  },
+  "narratives": {
+    "spacex-explorer": [
+      { "kind": "paragraph", "text": "SpaceX Explorer is a mobile case study in doing Clean Architecture right on a small scope. The app surfaces launches, rockets, and crew members from the SpaceX v4 public API, but the value is in the layering — the UI layer owns nothing except Compose state and view models, the domain layer holds use cases and pure models, and the data layer handles HTTP, DTO mapping, and caching." },
+      { "kind": "heading", "text": "What it demonstrates" },
+      { "kind": "list", "items": ["Clean Architecture with strict inward dependency flow", "Hilt for dependency injection across modules", "Kotlin Coroutines + Flow for async data streams", "Jetpack Compose UI with hoisted state and preview-driven iteration", "Retrofit + Moshi wiring against the SpaceX API v4"] },
+      { "kind": "heading", "text": "Why I built it" },
+      { "kind": "paragraph", "text": "I wanted a mobile surface to practice the same architecture boundaries I use on the backend, so the codebase looks more like a production Android app than a hobby project. Every feature — list, detail, filter — is its own slice that plugs into the same domain contracts." }
+    ],
+    "sgci-app": [
+      { "kind": "paragraph", "text": "SGCI is the project where I treated Clean Architecture as non-negotiable. The CLI is only the delivery mechanism — underneath, the domain layer models purchases, stock movements, promotional plans, and cash registers as aggregates with their own invariants. The application layer orchestrates use cases, and infrastructure adapts to whichever storage strategy the business needs." },
+      { "kind": "heading", "text": "Architecture highlights" },
+      { "kind": "list", "items": ["Hexagonal layering with ports/adapters for persistence", "Use-case classes that take primitive inputs and return DTOs", "Repository interfaces in the domain, implementations in infrastructure", "CLI commands as thin controllers over the application layer", "Transactional workflows that compose multiple aggregates safely"] },
+      { "kind": "paragraph", "text": "The result is a codebase where every business rule is reachable from a single file, and every delivery adapter can be swapped without touching the domain." }
+    ],
+    "campuslove": [
+      { "kind": "paragraph", "text": "CampusLove was my first serious tour of PostgreSQL from the application side. Beyond the matchmaking surface, the project is a study of how to design schemas you can query fast, index thoughtfully, and migrate safely over time." },
+      { "kind": "heading", "text": "What I practiced" },
+      { "kind": "list", "items": ["PostgreSQL schema design with referential integrity and indexes", "Parameterized SQL queries (no string concatenation, ever)", "Modular console commands split by feature", "Separation between persistence models and domain shape"] },
+      { "kind": "paragraph", "text": "It looks like a toy app on the outside, but it's where I internalized the habits I now rely on at work when designing production schemas." }
+    ],
+    "todo-list-flask": [
+      { "kind": "paragraph", "text": "My earliest shipped fullstack project. It's small, but every concern a real web app has is in there — routing, templating, forms, authentication, persistence, and a public deployment." },
+      { "kind": "heading", "text": "What stuck with me" },
+      { "kind": "list", "items": ["Form handling and validation end-to-end", "Password hashing and session management", "Per-user data isolation at the SQL layer", "A working public deployment behind a real URL"] },
+      { "kind": "paragraph", "text": "It's the project that taught me the difference between \"runs on my machine\" and \"ships.\" Every later project inherited those lessons." }
+    ],
+    "formula1-webcomponents": [
+      { "kind": "paragraph", "text": "The only retained frontend project in this portfolio — kept because it proves the range without leaning on a framework. Three.js does the 3D rendering, Bootstrap handles the tables and layout, and the glue is all native Web Components." },
+      { "kind": "heading", "text": "What makes it interesting" },
+      { "kind": "list", "items": ["Team, driver, and vehicle CRUD with a reactive UI", "Three.js scenes rendered on per-track circuits", "Native custom elements, no framework runtime", "Responsive design that holds up on phone and desktop"] }
+    ]
+  }
+}

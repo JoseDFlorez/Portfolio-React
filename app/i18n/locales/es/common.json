@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "open_menu": "Abrir menú",
+    "menu_title": "Menú",
+    "primary": "Principal"
+  },
+  "buttons": {
+    "download_cv": "Descargar CV",
+    "cv_short": "CV",
+    "source": "Código",
+    "live": "Demo",
+    "read": "Leer",
+    "read_more": "Leer más",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "back": "Volver",
+    "view_projects": "Ver proyectos",
+    "get_in_touch": "Escríbeme",
+    "open_contact": "Abrir contacto",
+    "all_projects": "Todos los proyectos",
+    "read_long_version": "Leer la versión larga",
+    "contact": "Contacto"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "footer": {
+    "tagline": "Sistemas backend, dibujados antes de construirse. Ingeniero full-stack .NET en Bucaramanga, CO.",
+    "navigation_heading": "§ Navegación",
+    "elsewhere_heading": "§ En otros lugares",
+    "socials": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    }
+  },
+  "ledger": {
+    "route": "ruta",
+    "commit": "commit",
+    "built": "compilado",
+    "tz": "tz",
+    "node": "node"
+  },
+  "errors": {
+    "not_found_heading": "La página que buscabas no está en el archivo.",
+    "generic_heading": "Ocurrió un error inesperado.",
+    "not_found_label": "No encontrado",
+    "error_label": "Error inesperado"
+  },
+  "language_switcher": {
+    "label": "Idioma",
+    "aria": "Cambiar idioma"
+  }
+}

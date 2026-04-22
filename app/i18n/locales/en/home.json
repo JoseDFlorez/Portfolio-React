@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "eyebrow_label": "Introduction",
+    "h1_line_1": "Backend systems,",
+    "h1_line_2": "drawn before they're built.",
+    "subhead": "Full-stack .NET engineer specializing in Clean Architecture, PostgreSQL, and AI-assisted delivery. Currently shipping production services at Planeta IP Comunicaciones."
+  },
+  "currently": {
+    "prefix": "Currently",
+    "since_suffix": " →"
+  },
+  "featured": {
+    "label": "Featured",
+    "suffix": "Selected work",
+    "h2": "A curated slice of the systems, apps, and interfaces I've shipped.",
+    "all_projects": "All projects"
+  },
+  "about_strip": {
+    "label": "About",
+    "suffix": "Short version",
+    "read_long_version": "Read the long version"
+  },
+  "skills": {
+    "label": "Stack",
+    "suffix": "Working set",
+    "groups": {
+      "languages": "Languages",
+      "backend": "Backend",
+      "data": "Data",
+      "frontend": "Frontend",
+      "tooling": "Tooling"
+    }
+  },
+  "contact_cta": {
+    "label": "Contact",
+    "suffix": "Open line",
+    "headline_1": "Let's build",
+    "headline_2": "something together.",
+    "open_contact": "Open contact"
+  }
+}

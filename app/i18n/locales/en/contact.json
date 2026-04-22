@@ -1,0 +1,65 @@
+{
+  "masthead": {
+    "label": "Contact",
+    "suffix": "Open line",
+    "h1_line_1": "Say something.",
+    "h1_line_2": "I read everything."
+  },
+  "form": {
+    "name": {
+      "label": "§ Name",
+      "placeholder": "How should I address you?"
+    },
+    "email": {
+      "label": "§ Email",
+      "placeholder": "you@domain.com"
+    },
+    "subject": {
+      "label": "§ Subject",
+      "placeholder": "Short version of why you're writing."
+    },
+    "message": {
+      "label": "§ Message",
+      "placeholder": "What would you like to discuss?"
+    },
+    "submit": "Send message",
+    "submitting": "Sending",
+    "honeypot_label": "Website"
+  },
+  "errors": {
+    "name_required": "Please share your name.",
+    "name_too_long": "That's a long name — please shorten it.",
+    "email_required": "Email is required.",
+    "email_invalid": "That doesn't look like a valid email.",
+    "subject_required": "Please add a short subject.",
+    "subject_too_long": "Please shorten the subject.",
+    "message_too_short": "Please write at least 10 characters.",
+    "message_too_long": "That's more than I can read in one go — please trim it.",
+    "honeypot": "Looks like a bot caught the honeypot.",
+    "rate_limit": "Too many submissions from this IP. Please try again in a few minutes.",
+    "server_error": "The mail service isn't reachable right now. Please try again later.",
+    "generic": "Something went wrong. Please try again."
+  },
+  "toast": {
+    "success": "Message sent. I'll reply soon."
+  },
+  "side_note": {
+    "response": {
+      "heading": "§ Response",
+      "body": "Typical reply within 1–2 business days. I read every message."
+    },
+    "location": {
+      "heading": "§ Location",
+      "working_hours": "Working hours"
+    },
+    "preferred": {
+      "heading": "§ Preferred",
+      "body": "Short and specific beats long and vague. Paste a repo link if you have one."
+    }
+  },
+  "socials": {
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  }
+}

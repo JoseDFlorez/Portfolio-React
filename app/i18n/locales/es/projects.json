@@ -1,0 +1,95 @@
+{
+  "list": {
+    "label": "Proyectos",
+    "suffix": "Trabajo seleccionado",
+    "h1": "Lo que he entregado.",
+    "lede": "Una muestra curada de proyectos entre backend, fullstack, mobile y frontend. Los ejercicios antiguos del bootcamp viven en el archivo abajo.",
+    "stack_separator": " · ",
+    "row": {
+      "read": "Leer"
+    }
+  },
+  "filter": {
+    "all": "Todos",
+    "label": "Filtro",
+    "count_all": "{{count}} en total",
+    "count_filtered": "{{count}} de {{total}}"
+  },
+  "categories": {
+    "backend": "Backend",
+    "fullstack": "Fullstack",
+    "mobile": "Mobile",
+    "frontend": "Frontend"
+  },
+  "archive": {
+    "title": "Archivo — ejercicios anteriores",
+    "helper": "Proyectos de bootcamp y ejercicios puntuales conservados por transparencia. Solo títulos; sin páginas de detalle.",
+    "items": ["Hamburguesas Artesanales", "The Chachipun", "Liga Betplay", "Event Concert"]
+  },
+  "detail": {
+    "stack_heading": "Stack",
+    "plate_prefix": "§ Lámina",
+    "sibling_prev": "Anterior",
+    "sibling_next": "Siguiente"
+  },
+  "titles": {
+    "spacex-explorer": "SpaceX Explorer",
+    "sgci-app": "Sistema de Inventario SGCI",
+    "campuslove": "CampusLove",
+    "todo-list-flask": "App Web de Lista de Tareas",
+    "formula1-webcomponents": "Simulador de Fórmula 1"
+  },
+  "roles": {
+    "spacex-explorer": "Desarrollador Mobile",
+    "sgci-app": "Desarrollador Backend",
+    "campuslove": "Desarrollador Backend",
+    "todo-list-flask": "Desarrollador Fullstack",
+    "formula1-webcomponents": "Desarrollador Frontend"
+  },
+  "summaries": {
+    "spacex-explorer": "App nativa de Android que explora datos de lanzamientos, cohetes y tripulación de SpaceX a través de la API v4 pública, organizada con Clean Architecture, inyección de dependencias con Hilt y Kotlin Coroutines.",
+    "sgci-app": "Aplicación de negocio CLI en .NET Core que gestiona flujos de compras, stock, relaciones con terceros, planes promocionales, cajas y transacciones personalizables.",
+    "campuslove": "Simulador de emparejamiento respaldado por PostgreSQL. Los usuarios crean perfiles, navegan un feed de coincidencias e interactúan a través de una arquitectura modular enfocada en la persistencia y la forma de los datos.",
+    "todo-list-flask": "App web de gestión de tareas en Flask con registro de usuarios, login y listas persistentes por usuario respaldadas por SQLite, desplegada en PythonAnywhere.",
+    "formula1-webcomponents": "App interactiva de gestión y simulación 3D de Fórmula 1. Administra equipos, pilotos y vehículos, y luego ejecuta simulaciones de circuito renderizadas con Three.js — todo compuesto con Web Components nativos."
+  },
+  "thumbnail_alt": {
+    "spacex-explorer": "Placeholder editorial para la captura pendiente de SpaceX Explorer.",
+    "sgci-app": "Captura de la CLI de inventario SGCI.",
+    "campuslove": "Captura de la aplicación de consola CampusLove.",
+    "todo-list-flask": "Captura de la app web de tareas en Flask.",
+    "formula1-webcomponents": "Captura de la app web del simulador de Fórmula 1."
+  },
+  "narratives": {
+    "spacex-explorer": [
+      { "kind": "paragraph", "text": "SpaceX Explorer es un caso de estudio mobile sobre hacer bien Clean Architecture en un alcance pequeño. La app expone lanzamientos, cohetes y tripulación desde la API pública v4 de SpaceX, pero el valor está en el capeo — la capa de UI no posee nada más que estado de Compose y view models, la capa de dominio tiene casos de uso y modelos puros, y la capa de datos maneja HTTP, mapeo DTO y caché." },
+      { "kind": "heading", "text": "Lo que demuestra" },
+      { "kind": "list", "items": ["Clean Architecture con flujo estricto de dependencias hacia adentro", "Hilt para inyección de dependencias entre módulos", "Kotlin Coroutines + Flow para flujos de datos asíncronos", "UI en Jetpack Compose con estado izado e iteración con previews", "Retrofit + Moshi cableados contra la API v4 de SpaceX"] },
+      { "kind": "heading", "text": "Por qué lo construí" },
+      { "kind": "paragraph", "text": "Quería una superficie mobile para practicar los mismos límites arquitectónicos que uso en el backend, para que el código se pareciera más a una app Android de producción que a un proyecto de hobby. Cada feature — lista, detalle, filtro — es su propia rebanada que conecta con los mismos contratos de dominio." }
+    ],
+    "sgci-app": [
+      { "kind": "paragraph", "text": "SGCI es el proyecto donde traté Clean Architecture como innegociable. La CLI es solo el mecanismo de entrega — por debajo, la capa de dominio modela compras, movimientos de stock, planes promocionales y cajas como agregados con sus propias invariantes. La capa de aplicación orquesta casos de uso, y la infraestructura se adapta a la estrategia de almacenamiento que el negocio requiera." },
+      { "kind": "heading", "text": "Puntos arquitectónicos" },
+      { "kind": "list", "items": ["Estratificación hexagonal con puertos/adaptadores para persistencia", "Clases de caso de uso que reciben inputs primitivos y retornan DTOs", "Interfaces de repositorio en el dominio, implementaciones en infraestructura", "Comandos CLI como controladores delgados sobre la capa de aplicación", "Flujos transaccionales que componen múltiples agregados con seguridad"] },
+      { "kind": "paragraph", "text": "El resultado es una base de código donde cada regla de negocio es alcanzable desde un solo archivo, y cada adaptador de entrega puede reemplazarse sin tocar el dominio." }
+    ],
+    "campuslove": [
+      { "kind": "paragraph", "text": "CampusLove fue mi primer recorrido serio por PostgreSQL desde el lado de la aplicación. Más allá de la superficie de emparejamiento, el proyecto es un estudio de cómo diseñar esquemas que puedas consultar rápido, indexar con criterio y migrar con seguridad a lo largo del tiempo." },
+      { "kind": "heading", "text": "Lo que practiqué" },
+      { "kind": "list", "items": ["Diseño de esquema PostgreSQL con integridad referencial e índices", "Consultas SQL parametrizadas (nada de concatenar strings, nunca)", "Comandos de consola modulares divididos por feature", "Separación entre modelos de persistencia y forma del dominio"] },
+      { "kind": "paragraph", "text": "Por fuera parece una app de juguete, pero es donde interioricé los hábitos en los que ahora me apoyo en el trabajo al diseñar esquemas de producción." }
+    ],
+    "todo-list-flask": [
+      { "kind": "paragraph", "text": "Mi primer proyecto fullstack entregado. Es pequeño, pero cada preocupación que tiene una web real está ahí — ruteo, plantillas, formularios, autenticación, persistencia y un despliegue público." },
+      { "kind": "heading", "text": "Lo que me dejó" },
+      { "kind": "list", "items": ["Manejo y validación de formularios de punta a punta", "Hashing de contraseñas y gestión de sesiones", "Aislamiento de datos por usuario en la capa SQL", "Un despliegue público funcional detrás de una URL real"] },
+      { "kind": "paragraph", "text": "Es el proyecto que me enseñó la diferencia entre \"corre en mi máquina\" y \"se entrega\". Cada proyecto posterior heredó esas lecciones." }
+    ],
+    "formula1-webcomponents": [
+      { "kind": "paragraph", "text": "El único proyecto frontend retenido en este portafolio — conservado porque prueba el rango sin apoyarse en un framework. Three.js hace el renderizado 3D, Bootstrap maneja las tablas y el layout, y el pegamento son todo Web Components nativos." },
+      { "kind": "heading", "text": "Lo que lo hace interesante" },
+      { "kind": "list", "items": ["CRUD de equipos, pilotos y vehículos con UI reactiva", "Escenas de Three.js renderizadas por circuito", "Elementos personalizados nativos, sin runtime de framework", "Diseño responsivo que aguanta en móvil y escritorio"] }
+    ]
+  }
+}

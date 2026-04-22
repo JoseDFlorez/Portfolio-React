@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "open_menu": "Open menu",
+    "menu_title": "Menu",
+    "primary": "Primary"
+  },
+  "buttons": {
+    "download_cv": "Download CV",
+    "cv_short": "CV",
+    "source": "Source",
+    "live": "Live",
+    "read": "Read",
+    "read_more": "Read more",
+    "previous": "Previous",
+    "next": "Next",
+    "back": "Back",
+    "view_projects": "View Projects",
+    "get_in_touch": "Get in touch",
+    "open_contact": "Open contact",
+    "all_projects": "All projects",
+    "read_long_version": "Read the long version",
+    "contact": "Contact"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "footer": {
+    "tagline": "Backend systems, drawn before they're built. Full-stack .NET engineer in Bucaramanga, CO.",
+    "navigation_heading": "§ Navigation",
+    "elsewhere_heading": "§ Elsewhere",
+    "socials": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    }
+  },
+  "ledger": {
+    "route": "route",
+    "commit": "commit",
+    "built": "built",
+    "tz": "tz",
+    "node": "node"
+  },
+  "errors": {
+    "not_found_heading": "The page you were looking for isn't on file.",
+    "generic_heading": "An unexpected error occurred.",
+    "not_found_label": "Not found",
+    "error_label": "Unexpected error"
+  },
+  "language_switcher": {
+    "label": "Language",
+    "aria": "Change language"
+  }
+}

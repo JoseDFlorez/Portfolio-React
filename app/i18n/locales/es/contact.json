@@ -1,0 +1,65 @@
+{
+  "masthead": {
+    "label": "Contacto",
+    "suffix": "Línea abierta",
+    "h1_line_1": "Dime algo.",
+    "h1_line_2": "Lo leo todo."
+  },
+  "form": {
+    "name": {
+      "label": "§ Nombre",
+      "placeholder": "¿Cómo te llamas?"
+    },
+    "email": {
+      "label": "§ Email",
+      "placeholder": "tu@dominio.com"
+    },
+    "subject": {
+      "label": "§ Asunto",
+      "placeholder": "En corto: ¿por qué escribes?"
+    },
+    "message": {
+      "label": "§ Mensaje",
+      "placeholder": "¿De qué te gustaría hablar?"
+    },
+    "submit": "Enviar mensaje",
+    "submitting": "Enviando",
+    "honeypot_label": "Sitio web"
+  },
+  "errors": {
+    "name_required": "Cuéntame tu nombre.",
+    "name_too_long": "Es un nombre muy largo — acórtalo un poco.",
+    "email_required": "El email es obligatorio.",
+    "email_invalid": "Eso no parece un email válido.",
+    "subject_required": "Agrega un asunto breve.",
+    "subject_too_long": "Acorta el asunto, por favor.",
+    "message_too_short": "Escribe al menos 10 caracteres.",
+    "message_too_long": "Es más de lo que puedo leer de una — acórtalo.",
+    "honeypot": "Parece que un bot cayó en el honeypot.",
+    "rate_limit": "Demasiados envíos desde esta IP. Intenta de nuevo en unos minutos.",
+    "server_error": "El servicio de correo no está disponible ahora. Inténtalo más tarde.",
+    "generic": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "toast": {
+    "success": "Mensaje enviado. Te respondo pronto."
+  },
+  "side_note": {
+    "response": {
+      "heading": "§ Respuesta",
+      "body": "Respuesta típica en 1–2 días hábiles. Leo cada mensaje."
+    },
+    "location": {
+      "heading": "§ Ubicación",
+      "working_hours": "Horario de trabajo"
+    },
+    "preferred": {
+      "heading": "§ Preferido",
+      "body": "Corto y específico le gana a largo y vago. Pega un enlace de repo si tienes uno."
+    }
+  },
+  "socials": {
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  }
+}

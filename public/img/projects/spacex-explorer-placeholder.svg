@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="SpaceX Explorer — screenshot pending">
+  <rect width="640" height="400" fill="#f7f4ed"/>
+  <rect x="12" y="12" width="616" height="376" fill="none" stroke="#2a2730" stroke-width="1.25"/>
+  <g font-family="Fraunces, serif" fill="#2a2730">
+    <text x="48" y="88" font-size="72" font-weight="300" font-style="italic">To be shot.</text>
+  </g>
+  <g font-family="Geist Mono, monospace" fill="#2a2730">
+    <text x="48" y="132" font-size="11" letter-spacing="0.12em">§ 001 · SPACEX EXPLORER · ANDROID / KOTLIN / JETPACK COMPOSE</text>
+    <text x="48" y="156" font-size="11" letter-spacing="0.12em" fill="#6a6770">EMULATOR CAPTURE PENDING</text>
+  </g>
+  <g stroke="#2a2730" stroke-width="1">
+    <line x1="48" y1="280" x2="592" y2="280"/>
+    <line x1="48" y1="300" x2="224" y2="300" opacity="0.5"/>
+  </g>
+  <g font-family="Geist Mono, monospace" fill="#2a2730" font-size="10" letter-spacing="0.1em">
+    <text x="48" y="330" opacity="0.6">CLEAN ARCHITECTURE · HILT · COROUTINES</text>
+    <text x="48" y="350" opacity="0.6">PUBLIC API V4</text>
+    <text x="592" y="350" text-anchor="end">2025</text>
+  </g>
+</svg>

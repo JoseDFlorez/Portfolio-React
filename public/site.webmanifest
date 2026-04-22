@@ -1,0 +1,21 @@
+{
+  "name": "José Flórez — Portfolio",
+  "short_name": "José Flórez",
+  "description": "Full-stack .NET engineer specializing in C#, ASP.NET, PostgreSQL, and Clean Architecture.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ed",
+  "theme_color": "#f7f4ed",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

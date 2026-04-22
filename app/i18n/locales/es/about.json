@@ -1,0 +1,80 @@
+{
+  "masthead": {
+    "label": "Sobre mí",
+    "h1_line_1": "El backend es donde",
+    "h1_line_2": "realmente empieza la construcción.",
+    "portrait_alt": "José David Flórez Navarrete — retrato",
+    "byline_role": "Full Stack",
+    "currently_prefix": "Ahora"
+  },
+  "lead": "Construyo sistemas del lado del servidor con la disciplina de quien dibuja la arquitectura primero. Mi trabajo en Planeta IP Comunicaciones SAS ESP gira en torno a servicios C# / ASP.NET respaldados por PostgreSQL y Dapper, con autenticación RBAC y JWT, estructurados con los límites de Clean Architecture. Trato los flujos asistidos por IA — Claude Code, Codex — como herramientas de ingeniería de primera clase: iteración más rápida, pero el estándar de revisión sigue siendo humano.",
+  "tagline": "Sistemas backend, dibujados antes de construirse.",
+  "experience": {
+    "label": "Experiencia",
+    "suffix": "Línea de tiempo",
+    "h2": "Donde estoy construyendo.",
+    "present": "— presente",
+    "ended_prefix": "— ",
+    "planeta_ip": {
+      "role": "Desarrollador Full Stack",
+      "bullets": [
+        "Propiedad end-to-end del backend: diseño de esquemas PostgreSQL y migraciones, desarrollo de APIs, integraciones y preparación para producción.",
+        "Implementación de una API REST ASP.NET Core versionada con middleware de excepciones, estandarización de respuestas y rate limiting.",
+        "Autenticación JWT basada en cookies con rotación y hashing de refresh tokens, además de RBAC con políticas jerárquicas.",
+        "Capa de datos orientada a rendimiento con Dapper (SQL parametrizado, paginación/búsqueda, reportes con CTEs) y flujos transaccionales vía Unit of Work.",
+        "Refactorización de funciones almacenadas PostgreSQL de implementaciones hardcodeadas a versiones dinámicas y parametrizadas, con validación por capas para un sistema de gestión de emergencias.",
+        "Integración de flujos de desarrollo asistidos por IA (Claude Code, Codex) en la ingeniería diaria: planeación arquitectónica, revisión de código y diseño de funciones PostgreSQL."
+      ]
+    }
+  },
+  "education": {
+    "label": "Educación",
+    "suffix": "Credenciales",
+    "saint_leo": {
+      "credential": "BS",
+      "program": "Ingeniería en Sistemas Computacionales",
+      "notes": ["GPA 3.81 / 4.00", "Dean's Honor List"]
+    },
+    "campuslands": {
+      "credential": "Bootcamp",
+      "program": "Bootcamp de Desarrollo Fullstack",
+      "notes": ["Programa intensivo enfocado en C#, ASP.NET, PostgreSQL y arquitectura de software."]
+    }
+  },
+  "how_i_work": {
+    "label": "Método",
+    "suffix": "Cómo trabajo",
+    "h2": "Tres compromisos que no negocio.",
+    "entries": [
+      {
+        "title": "Primero los dibujos",
+        "body": "Los diagramas de dominio y casos de uso preceden al código. Los contratos de Clean Architecture mantienen los límites honestos para que la base de código siga siendo manejable mientras crece."
+      },
+      {
+        "title": "IA de copiloto, revisión humana",
+        "body": "Claude Code y Codex son aceleradores y primeros revisores. Cada diff igual pasa por una lectura manual y la compuerta de pruebas antes de integrarse."
+      },
+      {
+        "title": "Prueba por tests",
+        "body": "Vitest y Playwright en la capa web; patrones xUnit en el trabajo de backend. Si importa lo suficiente para entregarse, importa lo suficiente para fijarse con una prueba."
+      }
+    ]
+  },
+  "skills_matrix": {
+    "label": "Stack",
+    "suffix": "Conjunto de trabajo"
+  },
+  "skills_labels": {
+    "languages": "Lenguajes",
+    "backend": "Backend",
+    "data": "Datos",
+    "frontend": "Frontend",
+    "tooling": "Herramientas"
+  },
+  "cv_cta": {
+    "label": "Dossier",
+    "headline": "¿Quieres la versión de una página? Lleva el CV.",
+    "download": "Descargar CV",
+    "contact": "Contacto"
+  }
+}

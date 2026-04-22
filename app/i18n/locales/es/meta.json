@@ -1,0 +1,24 @@
+{
+  "home": {
+    "title": "José Flórez — Ingeniero Full Stack .NET",
+    "description": "Portafolio de José David Flórez Navarrete — ingeniero full-stack .NET especializado en C#, ASP.NET, PostgreSQL y Clean Architecture."
+  },
+  "about": {
+    "title": "Sobre mí — José Flórez",
+    "description": "Sobre José Flórez — ingeniero full-stack .NET en Planeta IP Comunicaciones. Clean Architecture, PostgreSQL, desarrollo asistido por IA."
+  },
+  "projects": {
+    "title": "Proyectos — José Flórez",
+    "description": "Proyectos de software seleccionados de José David Flórez Navarrete, entre categorías de backend, fullstack, mobile y frontend."
+  },
+  "contact": {
+    "title": "Contacto — José Flórez",
+    "description": "Escríbele a José Flórez — ingeniero full-stack .NET."
+  },
+  "not_found": {
+    "title": "No encontrado — José Flórez"
+  },
+  "project_not_found": {
+    "title": "Proyecto no encontrado — José Flórez"
+  }
+}

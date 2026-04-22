@@ -1,0 +1,80 @@
+{
+  "masthead": {
+    "label": "About",
+    "h1_line_1": "Backend is where",
+    "h1_line_2": "the building really starts.",
+    "portrait_alt": "José David Flórez Navarrete — portrait",
+    "byline_role": "Full Stack",
+    "currently_prefix": "Currently"
+  },
+  "lead": "I build server-side systems with the discipline of someone who draws the architecture first. My work at Planeta IP Comunicaciones SAS ESP centers on C# / ASP.NET services backed by PostgreSQL and Dapper, with RBAC and JWT auth, structured around Clean Architecture boundaries. I treat AI-assisted workflows — Claude Code, Codex — as first-class engineering tools: faster iteration, but the review standard stays human.",
+  "tagline": "Backend systems, drawn before they're built.",
+  "experience": {
+    "label": "Experience",
+    "suffix": "Timeline",
+    "h2": "Where I'm building.",
+    "present": "— present",
+    "ended_prefix": "— ",
+    "planeta_ip": {
+      "role": "Full Stack Developer",
+      "bullets": [
+        "End-to-end backend ownership: PostgreSQL schema design and migrations, API development, integrations, and production readiness.",
+        "Implemented a versioned ASP.NET Core REST API with exception middleware, response standardization, and rate limiting.",
+        "Built cookie-based JWT auth with refresh-token rotation and hashing, plus RBAC with hierarchical policies.",
+        "Performance-focused data layer with Dapper (parameterized SQL, paging/search, CTE reporting) and transactional workflows via Unit of Work.",
+        "Refactored PostgreSQL stored functions from hardcoded implementations to dynamic, parameterized versions with layered validation for an emergency-management system.",
+        "Integrated AI-assisted development workflows (Claude Code, Codex) into daily engineering: architecture planning, code review, and PostgreSQL function design."
+      ]
+    }
+  },
+  "education": {
+    "label": "Education",
+    "suffix": "Credentials",
+    "saint_leo": {
+      "credential": "BS",
+      "program": "BS in Computer Systems Engineering",
+      "notes": ["GPA 3.81 / 4.00", "Dean's Honor List"]
+    },
+    "campuslands": {
+      "credential": "Bootcamp",
+      "program": "Fullstack Development Bootcamp",
+      "notes": ["Intensive program focused on C#, ASP.NET, PostgreSQL, and software architecture."]
+    }
+  },
+  "how_i_work": {
+    "label": "Method",
+    "suffix": "How I work",
+    "h2": "Three commitments I won't trade.",
+    "entries": [
+      {
+        "title": "Drawings first",
+        "body": "Domain and use-case diagrams precede code. Clean Architecture contracts keep boundaries honest so the codebase stays tractable as it grows."
+      },
+      {
+        "title": "AI-paired, human-reviewed",
+        "body": "Claude Code and Codex act as accelerators and first reviewers. Every diff still passes a manual read and the test gate before it merges."
+      },
+      {
+        "title": "Proof by tests",
+        "body": "Vitest and Playwright on the web surface; xUnit patterns on backend work. If it matters enough to ship, it matters enough to pin down with a test."
+      }
+    ]
+  },
+  "skills_matrix": {
+    "label": "Stack",
+    "suffix": "Working set"
+  },
+  "skills_labels": {
+    "languages": "Languages",
+    "backend": "Backend",
+    "data": "Data",
+    "frontend": "Frontend",
+    "tooling": "Tooling"
+  },
+  "cv_cta": {
+    "label": "Dossier",
+    "headline": "Want the one-page version? Take the CV.",
+    "download": "Download CV",
+    "contact": "Contact"
+  }
+}

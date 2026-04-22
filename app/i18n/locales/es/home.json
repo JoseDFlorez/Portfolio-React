@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "eyebrow_label": "Introducción",
+    "h1_line_1": "Sistemas backend,",
+    "h1_line_2": "dibujados antes de construirse.",
+    "subhead": "Ingeniero full-stack .NET especializado en Clean Architecture, PostgreSQL y desarrollo asistido por IA. Actualmente entregando servicios en producción en Planeta IP Comunicaciones."
+  },
+  "currently": {
+    "prefix": "Ahora",
+    "since_suffix": " →"
+  },
+  "featured": {
+    "label": "Destacados",
+    "suffix": "Trabajo seleccionado",
+    "h2": "Una muestra curada de los sistemas, apps e interfaces que he entregado.",
+    "all_projects": "Todos los proyectos"
+  },
+  "about_strip": {
+    "label": "Sobre mí",
+    "suffix": "Versión corta",
+    "read_long_version": "Leer la versión larga"
+  },
+  "skills": {
+    "label": "Stack",
+    "suffix": "Conjunto de trabajo",
+    "groups": {
+      "languages": "Lenguajes",
+      "backend": "Backend",
+      "data": "Datos",
+      "frontend": "Frontend",
+      "tooling": "Herramientas"
+    }
+  },
+  "contact_cta": {
+    "label": "Contacto",
+    "suffix": "Línea abierta",
+    "headline_1": "Construyamos",
+    "headline_2": "algo juntos.",
+    "open_contact": "Abrir contacto"
+  }
+}
