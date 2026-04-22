@@ -10,7 +10,8 @@ export type BuildInfo = {
   nodeVersion: string;
 };
 
-const shortSha = env.COMMIT_SHA ? env.COMMIT_SHA.slice(0, 7) : "dev";
+const commitSha = env.COMMIT_SHA ?? env.VERCEL_GIT_COMMIT_SHA;
+const shortSha = commitSha ? commitSha.slice(0, 7) : "dev";
 
 const tz =
   (() => {

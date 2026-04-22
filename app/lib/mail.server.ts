@@ -23,12 +23,16 @@ function escapeHtml(value: string): string {
 
 export async function sendContactEmail(args: SendArgs): Promise<SendResult> {
   if (!mailConfigured) {
+    const reason = "missing RESEND_API_KEY / MAIL_FROM / MAIL_TO";
     log.warn("mail.stubbed", {
-      reason: "missing RESEND_API_KEY / MAIL_FROM / MAIL_TO",
+      reason,
       name: args.name,
       email: args.email,
       subject: args.subject,
     });
+    if (env.NODE_ENV === "production") {
+      return { ok: false, error: reason };
+    }
     return { ok: true, id: "stubbed", stubbed: true };
   }
 

@@ -110,6 +110,8 @@ Optional build metadata:
 COMMIT_SHA=
 ```
 
+On Vercel, `COMMIT_SHA` can usually be omitted if System Environment Variables are exposed, because the app also reads `VERCEL_GIT_COMMIT_SHA`.
+
 After each deploy, smoke test:
 
 ```bash

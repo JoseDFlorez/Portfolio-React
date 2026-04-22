@@ -6,9 +6,22 @@ type MetaEntry =
   | { name: string; content: string }
   | { tagName: "link"; rel: string; hrefLang?: string; href: string };
 
-const SITE_URL =
-  (typeof process !== "undefined" && process.env?.SITE_URL) ||
-  "https://joseflorez.dev";
+function resolveSiteUrl(): string {
+  if (typeof process === "undefined") return "https://joseflorez.dev";
+
+  const explicit = process.env.SITE_URL;
+  const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  const deploymentUrl = process.env.VERCEL_URL;
+  const resolved =
+    explicit ??
+    (productionUrl ? `https://${productionUrl}` : undefined) ??
+    (deploymentUrl ? `https://${deploymentUrl}` : undefined) ??
+    "https://joseflorez.dev";
+
+  return resolved.replace(/\/$/, "");
+}
+
+const SITE_URL = resolveSiteUrl();
 
 type MetaKind =
   | "home"
