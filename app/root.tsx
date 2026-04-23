@@ -19,6 +19,7 @@ import type { Route } from "./+types/root";
 import "@fontsource-variable/geist-mono";
 import "@fontsource-variable/fraunces/full.css";
 import frauncesLatinUrl from "@fontsource-variable/fraunces/files/fraunces-latin-full-normal.woff2?url";
+import geistMonoLatinUrl from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
 import "./app.css";
 import { themeInitScript } from "~/hooks/use-theme";
 import { SiteShell } from "~/components/layout/site-shell";
@@ -32,6 +33,13 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "preload",
     href: frauncesLatinUrl,
+    as: "font",
+    type: "font/woff2",
+    crossOrigin: "anonymous",
+  },
+  {
+    rel: "preload",
+    href: geistMonoLatinUrl,
     as: "font",
     type: "font/woff2",
     crossOrigin: "anonymous",
