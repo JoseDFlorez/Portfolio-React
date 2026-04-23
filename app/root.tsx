@@ -16,29 +16,25 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import type { Route } from "./+types/root";
+import "@fontsource-variable/geist-mono";
+import "@fontsource-variable/fraunces/full.css";
+import frauncesLatinUrl from "@fontsource-variable/fraunces/files/fraunces-latin-full-normal.woff2?url";
 import "./app.css";
 import { themeInitScript } from "~/hooks/use-theme";
 import { SiteShell } from "~/components/layout/site-shell";
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { getBuildInfo, type BuildInfo } from "~/lib/build-info.server";
 import { createCspNonce } from "~/lib/security-headers.server";
-import {
-  DEFAULT_LOCALE,
-  isSupportedLocale,
-  type Locale,
-} from "~/i18n/locale";
+import { DEFAULT_LOCALE, isSupportedLocale, type Locale } from "~/i18n/locale";
 import { createI18nInstance } from "~/i18n/config";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
+    rel: "preload",
+    href: frauncesLatinUrl,
+    as: "font",
+    type: "font/woff2",
     crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Geist+Mono:wght@100..900&display=swap",
   },
   { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
   { rel: "manifest", href: "/site.webmanifest" },
@@ -48,9 +44,7 @@ export async function loader(): Promise<{ build: BuildInfo; cspNonce: string }> 
   return { build: getBuildInfo(), cspNonce: createCspNonce() };
 }
 
-function resolveLocaleFromMatches(
-  matches: ReturnType<typeof useMatches>,
-): Locale {
+function resolveLocaleFromMatches(matches: ReturnType<typeof useMatches>): Locale {
   for (const match of matches) {
     const params = match.params as { locale?: string };
     if (params?.locale && isSupportedLocale(params.locale)) {
@@ -72,10 +66,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <script
-          nonce={cspNonce}
-          dangerouslySetInnerHTML={{ __html: themeInitScript }}
-        />
+        <script nonce={cspNonce} dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
         {children}
@@ -117,13 +108,7 @@ export function ErrorBoundary() {
   );
 }
 
-function ErrorBoundaryBody({
-  error,
-  build,
-}: {
-  error: unknown;
-  build: BuildInfo;
-}) {
+function ErrorBoundaryBody({ error, build }: { error: unknown; build: BuildInfo }) {
   const { t } = useTranslation("common");
   let numeral = "500";
   let label = t("errors.error_label");
@@ -132,14 +117,8 @@ function ErrorBoundaryBody({
 
   if (isRouteErrorResponse(error)) {
     numeral = String(error.status).padStart(3, "0");
-    label =
-      error.status === 404
-        ? t("errors.not_found_label")
-        : error.statusText || label;
-    details =
-      error.status === 404
-        ? t("errors.not_found_heading")
-        : error.data ?? details;
+    label = error.status === 404 ? t("errors.not_found_label") : error.statusText || label;
+    details = error.status === 404 ? t("errors.not_found_heading") : (error.data ?? details);
   } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
     stack = error.stack;

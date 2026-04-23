@@ -20,7 +20,7 @@ export function MonogramJF({ className }: { className?: string }) {
         strokeWidth="1"
       />
       <g
-        fontFamily="Fraunces, Georgia, serif"
+        fontFamily="Fraunces Variable, Georgia, serif"
         fill="currentColor"
         fontSize="20"
         fontWeight="400"
