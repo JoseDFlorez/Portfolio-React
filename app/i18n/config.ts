@@ -17,14 +17,7 @@ import esAbout from "./locales/es/about.json";
 import esProjects from "./locales/es/projects.json";
 import esContact from "./locales/es/contact.json";
 
-export const NAMESPACES = [
-  "common",
-  "meta",
-  "home",
-  "about",
-  "projects",
-  "contact",
-] as const;
+export const NAMESPACES = ["common", "meta", "home", "about", "projects", "contact"] as const;
 
 const resources = {
   en: {

@@ -8,9 +8,7 @@ export function createCspNonce(): string {
   return crypto.randomUUID().replace(/-/g, "");
 }
 
-export function buildSecurityHeaders(
-  options: SecurityHeaderOptions = {},
-): Record<string, string> {
+export function buildSecurityHeaders(options: SecurityHeaderOptions = {}): Record<string, string> {
   const isProd = env.NODE_ENV === "production";
   const prodScriptSrc = options.scriptNonce
     ? `script-src 'self' 'nonce-${options.scriptNonce}'`
@@ -19,8 +17,8 @@ export function buildSecurityHeaders(
   const csp = [
     "default-src 'self'",
     "img-src 'self' data: blob:",
-    "font-src 'self' https://fonts.gstatic.com",
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src 'self'",
+    "style-src 'self' 'unsafe-inline'",
     isProd ? prodScriptSrc : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "connect-src 'self' https://api.resend.com" + (isProd ? "" : " ws: wss:"),
     "frame-ancestors 'none'",
@@ -37,8 +35,7 @@ export function buildSecurityHeaders(
   };
 
   if (isProd) {
-    headers["Strict-Transport-Security"] =
-      "max-age=63072000; includeSubDomains; preload";
+    headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains; preload";
   }
 
   return headers;

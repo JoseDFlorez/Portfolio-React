@@ -29,13 +29,7 @@ export function toRoman(n: number): string {
   return out;
 }
 
-export function YearNumeral({
-  year,
-  className,
-}: {
-  year: number;
-  className?: string;
-}) {
+export function YearNumeral({ year, className }: { year: number; className?: string }) {
   return (
     <span
       className={cn(

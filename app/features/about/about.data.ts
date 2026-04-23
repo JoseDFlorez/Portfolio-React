@@ -82,14 +82,7 @@ const skillsRaw: SkillGroup[] = [
   },
   {
     id: "data",
-    items: [
-      "PostgreSQL",
-      "Stored Functions",
-      "CTEs",
-      "Migrations",
-      "MySQL",
-      "SQLite",
-    ],
+    items: ["PostgreSQL", "Stored Functions", "CTEs", "Migrations", "MySQL", "SQLite"],
   },
   {
     id: "frontend",

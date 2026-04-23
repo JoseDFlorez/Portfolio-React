@@ -6,10 +6,7 @@ import { Hairline } from "~/components/editorial/hairline";
 import { ContactForm } from "~/features/contact/components/contact-form";
 import { ContactSocials } from "~/features/contact/components/contact-socials";
 import { ContactSideNote } from "~/features/contact/components/contact-side-note";
-import {
-  createContactSchema,
-  type ContactFieldErrors,
-} from "~/features/contact/contact.schema";
+import { createContactSchema, type ContactFieldErrors } from "~/features/contact/contact.schema";
 import { sendContactEmail } from "~/lib/mail.server";
 import { checkRateLimit, getClientKey } from "~/lib/rate-limit.server";
 import { log } from "~/lib/logger.server";
@@ -19,10 +16,7 @@ import { createI18nInstance } from "~/i18n/config";
 
 export function meta({ data: loaderData, location }: Route.MetaArgs) {
   if (!loaderData) return [];
-  return [
-    ...buildMetaEntries(loaderData.locale, "contact"),
-    ...alternateLinks(location.pathname),
-  ];
+  return [...buildMetaEntries(loaderData.locale, "contact"), ...alternateLinks(location.pathname)];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
@@ -56,18 +50,12 @@ export async function action({ params, request }: Route.ActionArgs) {
 
   const limit = checkRateLimit(getClientKey(request));
   if (!limit.allowed) {
-    return Response.json(
-      { ok: false, formError: t("errors.rate_limit") },
-      { status: 429 },
-    );
+    return Response.json({ ok: false, formError: t("errors.rate_limit") }, { status: 429 });
   }
 
   const result = await sendContactEmail(parsed.data);
   if (!result.ok) {
-    return Response.json(
-      { ok: false, formError: t("errors.server_error") },
-      { status: 502 },
-    );
+    return Response.json({ ok: false, formError: t("errors.server_error") }, { status: 502 });
   }
 
   return Response.json({ ok: true, id: result.id });
@@ -78,16 +66,10 @@ export default function ContactRoute() {
   return (
     <>
       <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-        <SectionNumeral
-          numeral="000"
-          label={t("masthead.label")}
-          suffix={t("masthead.suffix")}
-        />
+        <SectionNumeral numeral="000" label={t("masthead.label")} suffix={t("masthead.suffix")} />
         <h1 className="mt-6 max-w-4xl font-heading text-5xl font-light leading-[1.02] tracking-tight md:text-7xl">
           <span className="block">{t("masthead.h1_line_1")}</span>
-          <span className="block italic text-muted-foreground">
-            {t("masthead.h1_line_2")}
-          </span>
+          <span className="block italic text-muted-foreground">{t("masthead.h1_line_2")}</span>
         </h1>
         <Hairline className="my-10" />
         <div className="grid gap-12 md:grid-cols-[2fr,1fr] md:gap-16">

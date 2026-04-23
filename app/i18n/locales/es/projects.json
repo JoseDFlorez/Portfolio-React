@@ -62,34 +62,103 @@
   },
   "narratives": {
     "spacex-explorer": [
-      { "kind": "paragraph", "text": "SpaceX Explorer es un caso de estudio mobile sobre hacer bien Clean Architecture en un alcance pequeño. La app expone lanzamientos, cohetes y tripulación desde la API pública v4 de SpaceX, pero el valor está en el capeo — la capa de UI no posee nada más que estado de Compose y view models, la capa de dominio tiene casos de uso y modelos puros, y la capa de datos maneja HTTP, mapeo DTO y caché." },
+      {
+        "kind": "paragraph",
+        "text": "SpaceX Explorer es un caso de estudio mobile sobre hacer bien Clean Architecture en un alcance pequeño. La app expone lanzamientos, cohetes y tripulación desde la API pública v4 de SpaceX, pero el valor está en el capeo — la capa de UI no posee nada más que estado de Compose y view models, la capa de dominio tiene casos de uso y modelos puros, y la capa de datos maneja HTTP, mapeo DTO y caché."
+      },
       { "kind": "heading", "text": "Lo que demuestra" },
-      { "kind": "list", "items": ["Clean Architecture con flujo estricto de dependencias hacia adentro", "Hilt para inyección de dependencias entre módulos", "Kotlin Coroutines + Flow para flujos de datos asíncronos", "UI en Jetpack Compose con estado izado e iteración con previews", "Retrofit + Moshi cableados contra la API v4 de SpaceX"] },
+      {
+        "kind": "list",
+        "items": [
+          "Clean Architecture con flujo estricto de dependencias hacia adentro",
+          "Hilt para inyección de dependencias entre módulos",
+          "Kotlin Coroutines + Flow para flujos de datos asíncronos",
+          "UI en Jetpack Compose con estado izado e iteración con previews",
+          "Retrofit + Moshi cableados contra la API v4 de SpaceX"
+        ]
+      },
       { "kind": "heading", "text": "Por qué lo construí" },
-      { "kind": "paragraph", "text": "Quería una superficie mobile para practicar los mismos límites arquitectónicos que uso en el backend, para que el código se pareciera más a una app Android de producción que a un proyecto de hobby. Cada feature — lista, detalle, filtro — es su propia rebanada que conecta con los mismos contratos de dominio." }
+      {
+        "kind": "paragraph",
+        "text": "Quería una superficie mobile para practicar los mismos límites arquitectónicos que uso en el backend, para que el código se pareciera más a una app Android de producción que a un proyecto de hobby. Cada feature — lista, detalle, filtro — es su propia rebanada que conecta con los mismos contratos de dominio."
+      }
     ],
     "sgci-app": [
-      { "kind": "paragraph", "text": "SGCI es el proyecto donde traté Clean Architecture como innegociable. La CLI es solo el mecanismo de entrega — por debajo, la capa de dominio modela compras, movimientos de stock, planes promocionales y cajas como agregados con sus propias invariantes. La capa de aplicación orquesta casos de uso, y la infraestructura se adapta a la estrategia de almacenamiento que el negocio requiera." },
+      {
+        "kind": "paragraph",
+        "text": "SGCI es el proyecto donde traté Clean Architecture como innegociable. La CLI es solo el mecanismo de entrega — por debajo, la capa de dominio modela compras, movimientos de stock, planes promocionales y cajas como agregados con sus propias invariantes. La capa de aplicación orquesta casos de uso, y la infraestructura se adapta a la estrategia de almacenamiento que el negocio requiera."
+      },
       { "kind": "heading", "text": "Puntos arquitectónicos" },
-      { "kind": "list", "items": ["Estratificación hexagonal con puertos/adaptadores para persistencia", "Clases de caso de uso que reciben inputs primitivos y retornan DTOs", "Interfaces de repositorio en el dominio, implementaciones en infraestructura", "Comandos CLI como controladores delgados sobre la capa de aplicación", "Flujos transaccionales que componen múltiples agregados con seguridad"] },
-      { "kind": "paragraph", "text": "El resultado es una base de código donde cada regla de negocio es alcanzable desde un solo archivo, y cada adaptador de entrega puede reemplazarse sin tocar el dominio." }
+      {
+        "kind": "list",
+        "items": [
+          "Estratificación hexagonal con puertos/adaptadores para persistencia",
+          "Clases de caso de uso que reciben inputs primitivos y retornan DTOs",
+          "Interfaces de repositorio en el dominio, implementaciones en infraestructura",
+          "Comandos CLI como controladores delgados sobre la capa de aplicación",
+          "Flujos transaccionales que componen múltiples agregados con seguridad"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "El resultado es una base de código donde cada regla de negocio es alcanzable desde un solo archivo, y cada adaptador de entrega puede reemplazarse sin tocar el dominio."
+      }
     ],
     "campuslove": [
-      { "kind": "paragraph", "text": "CampusLove fue mi primer recorrido serio por PostgreSQL desde el lado de la aplicación. Más allá de la superficie de emparejamiento, el proyecto es un estudio de cómo diseñar esquemas que puedas consultar rápido, indexar con criterio y migrar con seguridad a lo largo del tiempo." },
+      {
+        "kind": "paragraph",
+        "text": "CampusLove fue mi primer recorrido serio por PostgreSQL desde el lado de la aplicación. Más allá de la superficie de emparejamiento, el proyecto es un estudio de cómo diseñar esquemas que puedas consultar rápido, indexar con criterio y migrar con seguridad a lo largo del tiempo."
+      },
       { "kind": "heading", "text": "Lo que practiqué" },
-      { "kind": "list", "items": ["Diseño de esquema PostgreSQL con integridad referencial e índices", "Consultas SQL parametrizadas (nada de concatenar strings, nunca)", "Comandos de consola modulares divididos por feature", "Separación entre modelos de persistencia y forma del dominio"] },
-      { "kind": "paragraph", "text": "Por fuera parece una app de juguete, pero es donde interioricé los hábitos en los que ahora me apoyo en el trabajo al diseñar esquemas de producción." }
+      {
+        "kind": "list",
+        "items": [
+          "Diseño de esquema PostgreSQL con integridad referencial e índices",
+          "Consultas SQL parametrizadas (nada de concatenar strings, nunca)",
+          "Comandos de consola modulares divididos por feature",
+          "Separación entre modelos de persistencia y forma del dominio"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "Por fuera parece una app de juguete, pero es donde interioricé los hábitos en los que ahora me apoyo en el trabajo al diseñar esquemas de producción."
+      }
     ],
     "todo-list-flask": [
-      { "kind": "paragraph", "text": "Mi primer proyecto fullstack entregado. Es pequeño, pero cada preocupación que tiene una web real está ahí — ruteo, plantillas, formularios, autenticación, persistencia y un despliegue público." },
+      {
+        "kind": "paragraph",
+        "text": "Mi primer proyecto fullstack entregado. Es pequeño, pero cada preocupación que tiene una web real está ahí — ruteo, plantillas, formularios, autenticación, persistencia y un despliegue público."
+      },
       { "kind": "heading", "text": "Lo que me dejó" },
-      { "kind": "list", "items": ["Manejo y validación de formularios de punta a punta", "Hashing de contraseñas y gestión de sesiones", "Aislamiento de datos por usuario en la capa SQL", "Un despliegue público funcional detrás de una URL real"] },
-      { "kind": "paragraph", "text": "Es el proyecto que me enseñó la diferencia entre \"corre en mi máquina\" y \"se entrega\". Cada proyecto posterior heredó esas lecciones." }
+      {
+        "kind": "list",
+        "items": [
+          "Manejo y validación de formularios de punta a punta",
+          "Hashing de contraseñas y gestión de sesiones",
+          "Aislamiento de datos por usuario en la capa SQL",
+          "Un despliegue público funcional detrás de una URL real"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "Es el proyecto que me enseñó la diferencia entre \"corre en mi máquina\" y \"se entrega\". Cada proyecto posterior heredó esas lecciones."
+      }
     ],
     "formula1-webcomponents": [
-      { "kind": "paragraph", "text": "El único proyecto frontend retenido en este portafolio — conservado porque prueba el rango sin apoyarse en un framework. Three.js hace el renderizado 3D, Bootstrap maneja las tablas y el layout, y el pegamento son todo Web Components nativos." },
+      {
+        "kind": "paragraph",
+        "text": "El único proyecto frontend retenido en este portafolio — conservado porque prueba el rango sin apoyarse en un framework. Three.js hace el renderizado 3D, Bootstrap maneja las tablas y el layout, y el pegamento son todo Web Components nativos."
+      },
       { "kind": "heading", "text": "Lo que lo hace interesante" },
-      { "kind": "list", "items": ["CRUD de equipos, pilotos y vehículos con UI reactiva", "Escenas de Three.js renderizadas por circuito", "Elementos personalizados nativos, sin runtime de framework", "Diseño responsivo que aguanta en móvil y escritorio"] }
+      {
+        "kind": "list",
+        "items": [
+          "CRUD de equipos, pilotos y vehículos con UI reactiva",
+          "Escenas de Three.js renderizadas por circuito",
+          "Elementos personalizados nativos, sin runtime de framework",
+          "Diseño responsivo que aguanta en móvil y escritorio"
+        ]
+      }
     ]
   }
 }

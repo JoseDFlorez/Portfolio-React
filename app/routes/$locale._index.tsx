@@ -14,20 +14,14 @@ import { getFeaturedProjects } from "~/features/projects/projects.data";
 import { skills } from "~/features/about/about.data";
 import { createI18nInstance } from "~/i18n/config";
 import { localeSchema } from "~/i18n/locale";
-import {
-  alternateLinks,
-  buildMetaEntries,
-} from "~/i18n/meta";
+import { alternateLinks, buildMetaEntries } from "~/i18n/meta";
 
 const SNAPSHOT_GROUPS = ["languages", "backend", "data"] as const;
 const SNAPSHOT_CAP = 4;
 
 export function meta({ data: loaderData, location }: Route.MetaArgs) {
   if (!loaderData) return [];
-  return [
-    ...buildMetaEntries(loaderData.locale, "home"),
-    ...alternateLinks(location.pathname),
-  ];
+  return [...buildMetaEntries(loaderData.locale, "home"), ...alternateLinks(location.pathname)];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {

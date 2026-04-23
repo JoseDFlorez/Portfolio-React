@@ -41,9 +41,7 @@ export function SiteFooter({ build }: { build: BuildInfo }) {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <MonogramJF className="text-foreground" />
-            <span className="font-heading text-lg tracking-tight">
-              José Flórez
-            </span>
+            <span className="font-heading text-lg tracking-tight">José Flórez</span>
           </div>
           <p className="max-w-xs font-sans text-[12px] leading-relaxed text-muted-foreground">
             {t("footer.tagline")}
@@ -87,14 +85,10 @@ export function SiteFooter({ build }: { build: BuildInfo }) {
                 <a
                   href={href}
                   target={href.startsWith("mailto:") ? undefined : "_blank"}
-                  rel={
-                    href.startsWith("mailto:") ? undefined : "noreferrer noopener"
-                  }
+                  rel={href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
                   className="inline-flex flex-col gap-0.5 text-foreground/80 transition-colors hover:text-primary"
                 >
-                  <span className="uppercase tracking-[0.16em]">
-                    {t(`footer.socials.${key}`)}
-                  </span>
+                  <span className="uppercase tracking-[0.16em]">{t(`footer.socials.${key}`)}</span>
                   <span className="text-[11px] text-muted-foreground group-hover:text-primary">
                     {handle}
                   </span>

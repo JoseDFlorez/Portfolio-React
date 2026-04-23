@@ -22,18 +22,10 @@ export function ArchivedAccordion() {
           </p>
           <ul className="flex flex-col gap-2 py-2 font-sans text-sm text-muted-foreground">
             {titles.map((title) => (
-              <li
-                key={title}
-                className="flex items-baseline justify-between gap-4"
-              >
+              <li key={title} className="flex items-baseline justify-between gap-4">
                 <span>{title}</span>
-                <span
-                  aria-hidden="true"
-                  className="flex-1 border-b border-dotted border-border"
-                />
-                <span className="font-sans text-[10px] uppercase tracking-[0.2em]">
-                  Archived
-                </span>
+                <span aria-hidden="true" className="flex-1 border-b border-dotted border-border" />
+                <span className="font-sans text-[10px] uppercase tracking-[0.2em]">Archived</span>
               </li>
             ))}
           </ul>

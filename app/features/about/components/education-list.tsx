@@ -8,11 +8,7 @@ export function EducationList() {
   const { t } = useTranslation("about");
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral
-        numeral="002"
-        label={t("education.label")}
-        suffix={t("education.suffix")}
-      />
+      <SectionNumeral numeral="002" label={t("education.label")} suffix={t("education.suffix")} />
       <Hairline className="my-10" />
       <ul className="flex flex-col gap-10">
         {education.map((entry) => {

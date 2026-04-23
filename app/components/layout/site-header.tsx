@@ -14,10 +14,7 @@ import {
 } from "~/components/ui/sheet";
 import { MonogramJF } from "~/components/editorial/monogram";
 import { ThemeToggle } from "~/components/layout/theme-toggle";
-import {
-  LanguageSwitcher,
-  LanguageSwitcherInline,
-} from "~/components/layout/language-switcher";
+import { LanguageSwitcher, LanguageSwitcherInline } from "~/components/layout/language-switcher";
 import { cn } from "~/lib/utils";
 import { useLocalePath } from "~/i18n/use-locale-path";
 
@@ -55,10 +52,7 @@ export function SiteHeader() {
           </span>
         </NavLink>
 
-        <nav
-          aria-label={t("nav.primary")}
-          className="hidden items-center gap-8 md:flex"
-        >
+        <nav aria-label={t("nav.primary")} className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
             <NavLink
               key={item.to}
@@ -101,14 +95,9 @@ export function SiteHeader() {
                 <Menu className="size-4" />
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-full max-w-sm border-l border-border"
-            >
+            <SheetContent side="right" className="w-full max-w-sm border-l border-border">
               <SheetHeader>
-                <SheetTitle className="font-heading text-xl">
-                  {t("nav.menu_title")}
-                </SheetTitle>
+                <SheetTitle className="font-heading text-xl">{t("nav.menu_title")}</SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-6 px-4">
                 {NAV.map((item) => (

@@ -20,9 +20,7 @@ describe("buildSecurityHeaders", () => {
     expect(headers["Content-Security-Policy"]).toContain("'unsafe-inline'");
     expect(headers["X-Frame-Options"]).toBe("DENY");
     expect(headers["X-Content-Type-Options"]).toBe("nosniff");
-    expect(headers["Referrer-Policy"]).toBe(
-      "strict-origin-when-cross-origin",
-    );
+    expect(headers["Referrer-Policy"]).toBe("strict-origin-when-cross-origin");
     expect(headers["Strict-Transport-Security"]).toBeUndefined();
   });
 

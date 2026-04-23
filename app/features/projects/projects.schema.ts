@@ -1,11 +1,6 @@
 import { z } from "zod";
 
-export const projectCategorySchema = z.enum([
-  "backend",
-  "fullstack",
-  "mobile",
-  "frontend",
-]);
+export const projectCategorySchema = z.enum(["backend", "fullstack", "mobile", "frontend"]);
 
 export type ProjectCategory = z.infer<typeof projectCategorySchema>;
 

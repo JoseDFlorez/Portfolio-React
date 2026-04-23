@@ -4,13 +4,7 @@ import { SiteFooter } from "~/components/layout/site-footer";
 import { Toaster } from "~/components/ui/sonner";
 import type { BuildInfo } from "~/lib/build-info.server";
 
-export function SiteShell({
-  children,
-  build,
-}: {
-  children: ReactNode;
-  build: BuildInfo;
-}) {
+export function SiteShell({ children, build }: { children: ReactNode; build: BuildInfo }) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <a

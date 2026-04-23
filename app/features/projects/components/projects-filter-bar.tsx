@@ -1,10 +1,7 @@
 import { useSearchParams } from "react-router";
 import { useTranslation } from "react-i18next";
 
-import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from "~/components/ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 import { Hairline } from "~/components/editorial/hairline";
 import type { ProjectCategory } from "~/features/projects/projects.schema";
 
@@ -72,11 +69,7 @@ export function ProjectsFilterBar({
   );
 }
 
-function countFor(
-  active: string,
-  categories: Facet[],
-  totalCount: number,
-): number {
+function countFor(active: string, categories: Facet[], totalCount: number): number {
   const match = categories.find((c) => c.value === active);
   return match?.count ?? totalCount;
 }

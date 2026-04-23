@@ -23,13 +23,7 @@ function resolveSiteUrl(): string {
 
 const SITE_URL = resolveSiteUrl();
 
-type MetaKind =
-  | "home"
-  | "about"
-  | "projects"
-  | "contact"
-  | "not_found"
-  | "project_not_found";
+type MetaKind = "home" | "about" | "projects" | "contact" | "not_found" | "project_not_found";
 
 export function buildMetaEntries(
   locale: Locale,
@@ -37,8 +31,7 @@ export function buildMetaEntries(
   override?: { title?: string; description?: string },
 ): MetaEntry[] {
   const instance = createI18nInstance(locale);
-  const title =
-    override?.title ?? (instance.t(`${kind}.title`, { ns: "meta" }) as string);
+  const title = override?.title ?? (instance.t(`${kind}.title`, { ns: "meta" }) as string);
   const description =
     override?.description ??
     (instance.t(`${kind}.description`, { ns: "meta", defaultValue: "" }) as string);

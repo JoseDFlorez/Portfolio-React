@@ -36,9 +36,8 @@ describe("i18n resource integrity", () => {
   it("has bullets in EN + ES for every experience entry id", () => {
     for (const entry of experience) {
       for (const bundle of [enAbout, esAbout]) {
-        const bullets = (bundle.experience as Record<string, { bullets?: string[] }>)[
-          entry.id
-        ]?.bullets;
+        const bullets = (bundle.experience as Record<string, { bullets?: string[] }>)[entry.id]
+          ?.bullets;
         expect(bullets?.length ?? 0).toBe(entry.bulletCount);
       }
     }
@@ -55,9 +54,7 @@ describe("i18n resource integrity", () => {
 
   it("covers at least N how-i-work entries in EN + ES", () => {
     for (const bundle of [enAbout, esAbout]) {
-      expect(bundle.how_i_work.entries.length).toBeGreaterThanOrEqual(
-        howIWork.length,
-      );
+      expect(bundle.how_i_work.entries.length).toBeGreaterThanOrEqual(howIWork.length);
     }
   });
 

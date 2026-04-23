@@ -14,10 +14,7 @@ import { useTranslation } from "react-i18next";
 
 export function meta({ data: loaderData, location }: Route.MetaArgs) {
   if (!loaderData) return [];
-  return [
-    ...buildMetaEntries(loaderData.locale, "projects"),
-    ...alternateLinks(location.pathname),
-  ];
+  return [...buildMetaEntries(loaderData.locale, "projects"), ...alternateLinks(location.pathname)];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
@@ -40,11 +37,7 @@ export default function ProjectsIndex({ loaderData }: Route.ComponentProps) {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral
-        numeral="001"
-        label={t("list.label")}
-        suffix={t("list.suffix")}
-      />
+      <SectionNumeral numeral="001" label={t("list.label")} suffix={t("list.suffix")} />
       <h1 className="mt-6 max-w-4xl font-heading text-5xl font-light leading-[1.02] tracking-tight md:text-7xl">
         {t("list.h1")}
       </h1>
