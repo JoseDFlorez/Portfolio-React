@@ -33,10 +33,14 @@ describe("projects data", () => {
     ).toThrow();
   });
 
-  it("returns max 3 featured projects", () => {
+  it("returns four featured projects in reverse-chronological order", () => {
     const featured = getFeaturedProjects();
-    expect(featured.length).toBeGreaterThan(0);
-    expect(featured.length).toBeLessThanOrEqual(3);
+    expect(featured.map((p) => p.slug)).toEqual([
+      "spacex-explorer",
+      "sgci-app",
+      "formula1-webcomponents",
+      "todo-list-flask",
+    ]);
     for (const p of featured) expect(p.featured).toBe(true);
   });
 
@@ -64,12 +68,8 @@ describe("projects data", () => {
   it("has an i18n entry for every slug", () => {
     for (const p of projects) {
       expect(enProjects.titles[p.slug as keyof typeof enProjects.titles]).toBeTruthy();
-      expect(
-        enProjects.summaries[p.slug as keyof typeof enProjects.summaries],
-      ).toBeTruthy();
-      expect(
-        enProjects.narratives[p.slug as keyof typeof enProjects.narratives],
-      ).toBeTruthy();
+      expect(enProjects.summaries[p.slug as keyof typeof enProjects.summaries]).toBeTruthy();
+      expect(enProjects.narratives[p.slug as keyof typeof enProjects.narratives]).toBeTruthy();
       expect(
         enProjects.thumbnail_alt[p.slug as keyof typeof enProjects.thumbnail_alt],
       ).toBeTruthy();

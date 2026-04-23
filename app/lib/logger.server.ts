@@ -9,7 +9,7 @@ function emit(level: LogLevel, evt: string, data?: Record<string, unknown>) {
     level,
     pid: typeof process !== "undefined" ? process.pid : 0,
     evt,
-    ...(data ?? {}),
+    ...data,
   };
   const serialized = JSON.stringify(line);
   if (level === "error" || level === "warn") {

@@ -7,7 +7,7 @@ const raw: Project[] = [
     stack: ["Kotlin", "Jetpack Compose", "Hilt", "Coroutines", "SpaceX API v4"],
     year: 2025,
     thumbnail: "/img/projects/spacex-explorer-placeholder.svg",
-    github: "https://github.com/JoseDFN",
+    github: "https://github.com/JoseDFN/SpaceX-Explorer-App",
     featured: true,
   },
   {
@@ -46,7 +46,7 @@ const raw: Project[] = [
     thumbnail: "/img/projects/formula1-webcomponents.png",
     github: "https://github.com/JoseDFN/Formula1",
     liveUrl: "https://formulaj1.netlify.app/",
-    featured: false,
+    featured: true,
   },
 ];
 
@@ -57,7 +57,10 @@ export function getProjectBySlug(slug: string): Project | undefined {
 }
 
 export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured).slice(0, 3);
+  return projects
+    .filter((p) => p.featured)
+    .sort((a, b) => b.year - a.year)
+    .slice(0, 4);
 }
 
 export type ProjectFacets = {
