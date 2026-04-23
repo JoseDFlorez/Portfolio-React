@@ -13,11 +13,7 @@ export function HomeSkillsSnapshot({ rows }: { rows: SkillsSnapshotRow[] }) {
   const { t } = useTranslation("home");
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral
-        numeral="003"
-        label={t("skills.label")}
-        suffix={t("skills.suffix")}
-      />
+      <SectionNumeral numeral="003" label={t("skills.label")} suffix={t("skills.suffix")} />
       <Hairline className="mt-8" reveal />
       <dl className="divide-y divide-border">
         {rows.map((row) => (

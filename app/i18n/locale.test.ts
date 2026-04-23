@@ -35,9 +35,7 @@ describe("pathWithoutLocale", () => {
     expect(pathWithoutLocale("/en")).toBe("/");
     expect(pathWithoutLocale("/es")).toBe("/");
     expect(pathWithoutLocale("/en/about")).toBe("/about");
-    expect(pathWithoutLocale("/es/projects/sgci-app")).toBe(
-      "/projects/sgci-app",
-    );
+    expect(pathWithoutLocale("/es/projects/sgci-app")).toBe("/projects/sgci-app");
   });
 
   it("returns unchanged for unknown prefixes", () => {

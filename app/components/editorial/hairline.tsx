@@ -19,8 +19,7 @@ export function Hairline({
       data-in-view={reveal ? (inView ? "true" : "false") : undefined}
       className={cn(
         "my-0 h-px w-full border-0 bg-border",
-        variant === "dashed" &&
-          "h-0 bg-transparent border-t border-dashed border-border",
+        variant === "dashed" && "h-0 bg-transparent border-t border-dashed border-border",
         className,
       )}
       role="presentation"

@@ -8,9 +8,7 @@ type SendArgs = {
   message: string;
 };
 
-type SendResult =
-  | { ok: true; id: string; stubbed?: boolean }
-  | { ok: false; error: string };
+type SendResult = { ok: true; id: string; stubbed?: boolean } | { ok: false; error: string };
 
 function escapeHtml(value: string): string {
   return value

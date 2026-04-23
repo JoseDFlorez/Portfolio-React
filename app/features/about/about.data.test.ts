@@ -1,11 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  education,
-  experience,
-  howIWork,
-  profile,
-  skills,
-} from "./about.data";
+import { education, experience, howIWork, profile, skills } from "./about.data";
 import enAbout from "~/i18n/locales/en/about.json";
 
 describe("about data", () => {

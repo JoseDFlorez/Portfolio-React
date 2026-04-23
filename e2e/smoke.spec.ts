@@ -2,23 +2,30 @@ import { expect, test } from "@playwright/test";
 
 test("home renders with section numeral", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    /Backend systems/i,
-  );
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(/Backend systems/i);
   await expect(page.getByText(/Introduction/i)).toBeVisible();
 });
 
 test("navigation reaches every primary route", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: /^About$/ }).first().click();
+  await page
+    .getByRole("link", { name: /^About$/ })
+    .first()
+    .click();
   await expect(page).toHaveURL(/\/about$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-  await page.getByRole("link", { name: /^Projects$/ }).first().click();
+  await page
+    .getByRole("link", { name: /^Projects$/ })
+    .first()
+    .click();
   await expect(page).toHaveURL(/\/projects$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-  await page.getByRole("link", { name: /^Contact$/ }).first().click();
+  await page
+    .getByRole("link", { name: /^Contact$/ })
+    .first()
+    .click();
   await expect(page).toHaveURL(/\/contact$/);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 });

@@ -11,10 +11,7 @@ import { alternateLinks, buildMetaEntries } from "~/i18n/meta";
 
 export function meta({ data: loaderData, location }: Route.MetaArgs) {
   if (!loaderData) return [];
-  return [
-    ...buildMetaEntries(loaderData.locale, "about"),
-    ...alternateLinks(location.pathname),
-  ];
+  return [...buildMetaEntries(loaderData.locale, "about"), ...alternateLinks(location.pathname)];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {

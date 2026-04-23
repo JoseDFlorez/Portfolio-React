@@ -42,10 +42,7 @@ function NarrativeNode({ block }: { block: NarrativeBlock }) {
           <ul className="flex flex-col gap-2 font-sans text-[14px] leading-relaxed text-foreground/85 md:text-[15px]">
             {block.items.map((item, i) => (
               <li key={i} className="flex gap-3">
-                <span
-                  aria-hidden="true"
-                  className="mt-[0.55em] h-px w-3 shrink-0 bg-foreground"
-                />
+                <span aria-hidden="true" className="mt-[0.55em] h-px w-3 shrink-0 bg-foreground" />
                 <span>{item}</span>
               </li>
             ))}

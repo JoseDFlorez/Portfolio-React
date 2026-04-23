@@ -9,11 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import {
-  SUPPORTED_LOCALES,
-  pathWithoutLocale,
-  type Locale,
-} from "~/i18n/locale";
+import { SUPPORTED_LOCALES, pathWithoutLocale, type Locale } from "~/i18n/locale";
 import { useLocale } from "~/i18n/use-locale-path";
 import { cn } from "~/lib/utils";
 
@@ -67,11 +63,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   );
 }
 
-export function LanguageSwitcherInline({
-  onSelect,
-}: {
-  onSelect?: () => void;
-}) {
+export function LanguageSwitcherInline({ onSelect }: { onSelect?: () => void }) {
   const location = useLocation();
   const current = useLocale();
   const tail = pathWithoutLocale(location.pathname);

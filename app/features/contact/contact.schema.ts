@@ -16,31 +16,11 @@ const defaultMessages: Record<string, string> = {
 
 export function createContactSchema(t: MessageResolver = (key) => defaultMessages[key] ?? key) {
   return z.object({
-    name: z
-      .string()
-      .trim()
-      .min(2, t("name_required"))
-      .max(80, t("name_too_long")),
-    email: z
-      .string()
-      .trim()
-      .min(1, t("email_required"))
-      .email(t("email_invalid")),
-    subject: z
-      .string()
-      .trim()
-      .min(3, t("subject_required"))
-      .max(120, t("subject_too_long")),
-    message: z
-      .string()
-      .trim()
-      .min(10, t("message_too_short"))
-      .max(4000, t("message_too_long")),
-    website: z
-      .string()
-      .max(0, t("honeypot"))
-      .optional()
-      .or(z.literal("")),
+    name: z.string().trim().min(2, t("name_required")).max(80, t("name_too_long")),
+    email: z.string().trim().min(1, t("email_required")).email(t("email_invalid")),
+    subject: z.string().trim().min(3, t("subject_required")).max(120, t("subject_too_long")),
+    message: z.string().trim().min(10, t("message_too_short")).max(4000, t("message_too_long")),
+    website: z.string().max(0, t("honeypot")).optional().or(z.literal("")),
   });
 }
 

@@ -17,10 +17,7 @@ import {
 } from "~/components/ui/form";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
-import {
-  createContactSchema,
-  type ContactInput,
-} from "~/features/contact/contact.schema";
+import { createContactSchema, type ContactInput } from "~/features/contact/contact.schema";
 
 type ActionData =
   | { ok: true; id: string }
@@ -31,10 +28,7 @@ export function ContactForm() {
   const fetcher = useFetcher<ActionData>();
   const pending = fetcher.state !== "idle";
 
-  const schema = useMemo(
-    () => createContactSchema((key) => t(`errors.${key}`)),
-    [t],
-  );
+  const schema = useMemo(() => createContactSchema((key) => t(`errors.${key}`)), [t]);
 
   const form = useForm<ContactInput>({
     resolver: zodResolver(schema),
@@ -72,11 +66,7 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(handleSubmit)}
-        className="flex flex-col gap-8"
-        noValidate
-      >
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-8" noValidate>
         <div className="hidden" aria-hidden="true">
           <label htmlFor="website">{t("form.honeypot_label")}</label>
           <input

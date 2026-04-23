@@ -15,10 +15,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function LocaleLayout({ loaderData }: Route.ComponentProps) {
-  const instance = useMemo(
-    () => createI18nInstance(loaderData.locale),
-    [loaderData.locale],
-  );
+  const instance = useMemo(() => createI18nInstance(loaderData.locale), [loaderData.locale]);
   return (
     <I18nextProvider i18n={instance}>
       <Outlet />

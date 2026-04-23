@@ -9,11 +9,7 @@ export function ExperienceTimeline() {
   const { t } = useTranslation("about");
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral
-        numeral="001"
-        label={t("experience.label")}
-        suffix={t("experience.suffix")}
-      />
+      <SectionNumeral numeral="001" label={t("experience.label")} suffix={t("experience.suffix")} />
       <h2 className="mt-6 max-w-3xl font-heading text-3xl font-light leading-tight tracking-tight md:text-5xl">
         {t("experience.h2")}
       </h2>

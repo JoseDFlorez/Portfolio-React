@@ -15,9 +15,7 @@ export function AboutMasthead() {
       />
       <h1 className="max-w-5xl font-heading text-5xl font-light leading-[1.02] tracking-tight md:text-7xl">
         <span className="block">{t("masthead.h1_line_1")}</span>
-        <span className="block italic text-muted-foreground">
-          {t("masthead.h1_line_2")}
-        </span>
+        <span className="block italic text-muted-foreground">{t("masthead.h1_line_2")}</span>
       </h1>
       <Hairline />
       <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] md:gap-16">
@@ -35,9 +33,7 @@ export function AboutMasthead() {
             />
           </div>
           <figcaption className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-            <span className="text-foreground">
-              {profile.name.replace("David ", "D. ")}
-            </span>
+            <span className="text-foreground">{profile.name.replace("David ", "D. ")}</span>
             <span aria-hidden="true" className="text-border">
               ·
             </span>

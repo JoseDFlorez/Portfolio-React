@@ -62,34 +62,103 @@
   },
   "narratives": {
     "spacex-explorer": [
-      { "kind": "paragraph", "text": "SpaceX Explorer is a mobile case study in doing Clean Architecture right on a small scope. The app surfaces launches, rockets, and crew members from the SpaceX v4 public API, but the value is in the layering — the UI layer owns nothing except Compose state and view models, the domain layer holds use cases and pure models, and the data layer handles HTTP, DTO mapping, and caching." },
+      {
+        "kind": "paragraph",
+        "text": "SpaceX Explorer is a mobile case study in doing Clean Architecture right on a small scope. The app surfaces launches, rockets, and crew members from the SpaceX v4 public API, but the value is in the layering — the UI layer owns nothing except Compose state and view models, the domain layer holds use cases and pure models, and the data layer handles HTTP, DTO mapping, and caching."
+      },
       { "kind": "heading", "text": "What it demonstrates" },
-      { "kind": "list", "items": ["Clean Architecture with strict inward dependency flow", "Hilt for dependency injection across modules", "Kotlin Coroutines + Flow for async data streams", "Jetpack Compose UI with hoisted state and preview-driven iteration", "Retrofit + Moshi wiring against the SpaceX API v4"] },
+      {
+        "kind": "list",
+        "items": [
+          "Clean Architecture with strict inward dependency flow",
+          "Hilt for dependency injection across modules",
+          "Kotlin Coroutines + Flow for async data streams",
+          "Jetpack Compose UI with hoisted state and preview-driven iteration",
+          "Retrofit + Moshi wiring against the SpaceX API v4"
+        ]
+      },
       { "kind": "heading", "text": "Why I built it" },
-      { "kind": "paragraph", "text": "I wanted a mobile surface to practice the same architecture boundaries I use on the backend, so the codebase looks more like a production Android app than a hobby project. Every feature — list, detail, filter — is its own slice that plugs into the same domain contracts." }
+      {
+        "kind": "paragraph",
+        "text": "I wanted a mobile surface to practice the same architecture boundaries I use on the backend, so the codebase looks more like a production Android app than a hobby project. Every feature — list, detail, filter — is its own slice that plugs into the same domain contracts."
+      }
     ],
     "sgci-app": [
-      { "kind": "paragraph", "text": "SGCI is the project where I treated Clean Architecture as non-negotiable. The CLI is only the delivery mechanism — underneath, the domain layer models purchases, stock movements, promotional plans, and cash registers as aggregates with their own invariants. The application layer orchestrates use cases, and infrastructure adapts to whichever storage strategy the business needs." },
+      {
+        "kind": "paragraph",
+        "text": "SGCI is the project where I treated Clean Architecture as non-negotiable. The CLI is only the delivery mechanism — underneath, the domain layer models purchases, stock movements, promotional plans, and cash registers as aggregates with their own invariants. The application layer orchestrates use cases, and infrastructure adapts to whichever storage strategy the business needs."
+      },
       { "kind": "heading", "text": "Architecture highlights" },
-      { "kind": "list", "items": ["Hexagonal layering with ports/adapters for persistence", "Use-case classes that take primitive inputs and return DTOs", "Repository interfaces in the domain, implementations in infrastructure", "CLI commands as thin controllers over the application layer", "Transactional workflows that compose multiple aggregates safely"] },
-      { "kind": "paragraph", "text": "The result is a codebase where every business rule is reachable from a single file, and every delivery adapter can be swapped without touching the domain." }
+      {
+        "kind": "list",
+        "items": [
+          "Hexagonal layering with ports/adapters for persistence",
+          "Use-case classes that take primitive inputs and return DTOs",
+          "Repository interfaces in the domain, implementations in infrastructure",
+          "CLI commands as thin controllers over the application layer",
+          "Transactional workflows that compose multiple aggregates safely"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "The result is a codebase where every business rule is reachable from a single file, and every delivery adapter can be swapped without touching the domain."
+      }
     ],
     "campuslove": [
-      { "kind": "paragraph", "text": "CampusLove was my first serious tour of PostgreSQL from the application side. Beyond the matchmaking surface, the project is a study of how to design schemas you can query fast, index thoughtfully, and migrate safely over time." },
+      {
+        "kind": "paragraph",
+        "text": "CampusLove was my first serious tour of PostgreSQL from the application side. Beyond the matchmaking surface, the project is a study of how to design schemas you can query fast, index thoughtfully, and migrate safely over time."
+      },
       { "kind": "heading", "text": "What I practiced" },
-      { "kind": "list", "items": ["PostgreSQL schema design with referential integrity and indexes", "Parameterized SQL queries (no string concatenation, ever)", "Modular console commands split by feature", "Separation between persistence models and domain shape"] },
-      { "kind": "paragraph", "text": "It looks like a toy app on the outside, but it's where I internalized the habits I now rely on at work when designing production schemas." }
+      {
+        "kind": "list",
+        "items": [
+          "PostgreSQL schema design with referential integrity and indexes",
+          "Parameterized SQL queries (no string concatenation, ever)",
+          "Modular console commands split by feature",
+          "Separation between persistence models and domain shape"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "It looks like a toy app on the outside, but it's where I internalized the habits I now rely on at work when designing production schemas."
+      }
     ],
     "todo-list-flask": [
-      { "kind": "paragraph", "text": "My earliest shipped fullstack project. It's small, but every concern a real web app has is in there — routing, templating, forms, authentication, persistence, and a public deployment." },
+      {
+        "kind": "paragraph",
+        "text": "My earliest shipped fullstack project. It's small, but every concern a real web app has is in there — routing, templating, forms, authentication, persistence, and a public deployment."
+      },
       { "kind": "heading", "text": "What stuck with me" },
-      { "kind": "list", "items": ["Form handling and validation end-to-end", "Password hashing and session management", "Per-user data isolation at the SQL layer", "A working public deployment behind a real URL"] },
-      { "kind": "paragraph", "text": "It's the project that taught me the difference between \"runs on my machine\" and \"ships.\" Every later project inherited those lessons." }
+      {
+        "kind": "list",
+        "items": [
+          "Form handling and validation end-to-end",
+          "Password hashing and session management",
+          "Per-user data isolation at the SQL layer",
+          "A working public deployment behind a real URL"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "It's the project that taught me the difference between \"runs on my machine\" and \"ships.\" Every later project inherited those lessons."
+      }
     ],
     "formula1-webcomponents": [
-      { "kind": "paragraph", "text": "The only retained frontend project in this portfolio — kept because it proves the range without leaning on a framework. Three.js does the 3D rendering, Bootstrap handles the tables and layout, and the glue is all native Web Components." },
+      {
+        "kind": "paragraph",
+        "text": "The only retained frontend project in this portfolio — kept because it proves the range without leaning on a framework. Three.js does the 3D rendering, Bootstrap handles the tables and layout, and the glue is all native Web Components."
+      },
       { "kind": "heading", "text": "What makes it interesting" },
-      { "kind": "list", "items": ["Team, driver, and vehicle CRUD with a reactive UI", "Three.js scenes rendered on per-track circuits", "Native custom elements, no framework runtime", "Responsive design that holds up on phone and desktop"] }
+      {
+        "kind": "list",
+        "items": [
+          "Team, driver, and vehicle CRUD with a reactive UI",
+          "Three.js scenes rendered on per-track circuits",
+          "Native custom elements, no framework runtime",
+          "Responsive design that holds up on phone and desktop"
+        ]
+      }
     ]
   }
 }

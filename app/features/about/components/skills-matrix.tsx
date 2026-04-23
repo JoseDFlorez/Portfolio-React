@@ -2,12 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { Hairline } from "~/components/editorial/hairline";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "~/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
 import { skills } from "~/features/about/about.data";
 
 export function SkillsMatrix() {
@@ -33,17 +28,10 @@ export function SkillsMatrix() {
           ))}
         </TabsList>
         {skills.map((group) => (
-          <TabsContent
-            key={group.id}
-            value={group.id}
-            className="mt-8 focus-visible:outline-none"
-          >
+          <TabsContent key={group.id} value={group.id} className="mt-8 focus-visible:outline-none">
             <ul className="flex flex-wrap gap-x-8 gap-y-3 font-heading text-xl font-light tracking-tight md:text-2xl">
               {group.items.map((item, idx) => (
-                <li
-                  key={item}
-                  className="inline-flex items-baseline gap-2 text-foreground/85"
-                >
+                <li key={item} className="inline-flex items-baseline gap-2 text-foreground/85">
                   <span className="font-sans text-[10px] tabular-nums uppercase tracking-[0.22em] text-muted-foreground">
                     {String(idx + 1).padStart(2, "0")}
                   </span>

@@ -6,11 +6,7 @@ import { ProjectHeader } from "~/features/projects/components/project-header";
 import { ProjectGallery } from "~/features/projects/components/project-gallery";
 import { ProjectNarrative } from "~/features/projects/components/project-narrative";
 import { ProjectSiblingNav } from "~/features/projects/components/project-sibling-nav";
-import {
-  getProjectBySlug,
-  getProjectSiblings,
-  projects,
-} from "~/features/projects/projects.data";
+import { getProjectBySlug, getProjectSiblings, projects } from "~/features/projects/projects.data";
 import { createI18nInstance } from "~/i18n/config";
 import { localeSchema } from "~/i18n/locale";
 import { alternateLinks, buildMetaEntries } from "~/i18n/meta";
@@ -58,10 +54,7 @@ export default function ProjectDetail({ loaderData }: Route.ComponentProps) {
       <ProjectHeader project={loaderData.project} index={loaderData.index} />
       <ProjectGallery project={loaderData.project} />
       <ProjectNarrative project={loaderData.project} />
-      <ProjectSiblingNav
-        prev={loaderData.siblings.prev}
-        next={loaderData.siblings.next}
-      />
+      <ProjectSiblingNav prev={loaderData.siblings.prev} next={loaderData.siblings.next} />
     </section>
   );
 }

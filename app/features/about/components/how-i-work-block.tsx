@@ -14,11 +14,7 @@ export function HowIWorkBlock() {
   }) as HowEntry[];
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral
-        numeral="003"
-        label={t("how_i_work.label")}
-        suffix={t("how_i_work.suffix")}
-      />
+      <SectionNumeral numeral="003" label={t("how_i_work.label")} suffix={t("how_i_work.suffix")} />
       <h2 className="mt-6 max-w-3xl font-heading text-3xl font-light leading-tight tracking-tight md:text-5xl">
         {t("how_i_work.h2")}
       </h2>
@@ -27,10 +23,7 @@ export function HowIWorkBlock() {
         {howIWork.map((slot, idx) => {
           const entry = entries[slot.index] ?? { title: "", body: "" };
           return (
-            <article
-              key={slot.index}
-              className="flex flex-col gap-4 border-t border-border pt-6"
-            >
+            <article key={slot.index} className="flex flex-col gap-4 border-t border-border pt-6">
               <p className="font-sans text-[10px] tabular-nums uppercase tracking-[0.22em] text-muted-foreground">
                 0{idx + 1}
               </p>

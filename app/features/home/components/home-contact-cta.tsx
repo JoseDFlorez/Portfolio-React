@@ -20,9 +20,7 @@ export function HomeContactCta() {
       <div className="mt-10 grid gap-10 md:grid-cols-[3fr,1fr] md:items-end md:gap-16">
         <h2 className="font-heading text-5xl font-light leading-[1.04] tracking-tight md:text-7xl">
           <span className="block">{t("contact_cta.headline_1")}</span>
-          <span className="block italic text-muted-foreground">
-            {t("contact_cta.headline_2")}
-          </span>
+          <span className="block italic text-muted-foreground">{t("contact_cta.headline_2")}</span>
         </h2>
         <Link
           to={localePath("/contact")}

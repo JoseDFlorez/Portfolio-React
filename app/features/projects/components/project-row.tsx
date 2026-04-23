@@ -5,13 +5,7 @@ import { useTranslation } from "react-i18next";
 import type { Project } from "~/features/projects/projects.schema";
 import { useLocalePath } from "~/i18n/use-locale-path";
 
-export function ProjectRow({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
+export function ProjectRow({ project, index }: { project: Project; index: number }) {
   const { t } = useTranslation("projects");
   const localePath = useLocalePath();
   const numeral = String(index + 1).padStart(3, "0");

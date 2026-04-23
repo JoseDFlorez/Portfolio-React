@@ -7,12 +7,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     include: ["app/**/*.{test,spec}.{ts,tsx}"],
-    exclude: [
-      "node_modules",
-      "build",
-      ".react-router",
-      "e2e/**",
-    ],
+    exclude: ["node_modules", "build", ".react-router", "e2e/**"],
   },
   resolve: {
     alias: {

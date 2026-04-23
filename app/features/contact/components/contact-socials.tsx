@@ -28,11 +28,7 @@ export function ContactSocials() {
             <a
               href={item.href}
               target={item.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={
-                item.href.startsWith("mailto:")
-                  ? undefined
-                  : "noreferrer noopener"
-              }
+              rel={item.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
               className="group flex items-center justify-between gap-4 px-6 py-6 transition-colors hover:bg-secondary"
             >
               <div>

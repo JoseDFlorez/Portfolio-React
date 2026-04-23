@@ -5,13 +5,7 @@ import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { Hairline } from "~/components/editorial/hairline";
 import type { Project } from "~/features/projects/projects.schema";
 
-export function ProjectHeader({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
+export function ProjectHeader({ project, index }: { project: Project; index: number }) {
   const { t } = useTranslation("projects");
   const numeral = String(index + 1).padStart(3, "0");
   return (

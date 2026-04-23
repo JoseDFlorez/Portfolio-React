@@ -23,9 +23,7 @@ export function CurrentlyStrip() {
             ) : (
               <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-primary" />
             )}
-            <span className={idx === 0 ? "text-foreground" : undefined}>
-              {part}
-            </span>
+            <span className={idx === 0 ? "text-foreground" : undefined}>{part}</span>
           </span>
         ))}
       </p>

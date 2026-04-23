@@ -38,7 +38,9 @@
     "campuslands": {
       "credential": "Bootcamp",
       "program": "Bootcamp de Desarrollo Fullstack",
-      "notes": ["Programa intensivo enfocado en C#, ASP.NET, PostgreSQL y arquitectura de software."]
+      "notes": [
+        "Programa intensivo enfocado en C#, ASP.NET, PostgreSQL y arquitectura de software."
+      ]
     }
   },
   "how_i_work": {

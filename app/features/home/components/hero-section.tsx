@@ -21,9 +21,7 @@ export function HeroSection() {
       />
       <h1 className="font-heading text-5xl font-light leading-[1.02] tracking-tight text-foreground md:text-7xl lg:text-[104px]">
         <span className="block">{t("hero.h1_line_1")}</span>
-        <span className="block italic text-muted-foreground">
-          {t("hero.h1_line_2")}
-        </span>
+        <span className="block italic text-muted-foreground">{t("hero.h1_line_2")}</span>
       </h1>
       <Hairline />
       <p className="max-w-2xl font-sans text-sm leading-relaxed text-muted-foreground md:text-[15px]">

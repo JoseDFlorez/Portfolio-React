@@ -6,13 +6,7 @@ import { Hairline } from "~/components/editorial/hairline";
 import type { Project } from "~/features/projects/projects.schema";
 import { useLocalePath } from "~/i18n/use-locale-path";
 
-export function ProjectSiblingNav({
-  prev,
-  next,
-}: {
-  prev: Project | null;
-  next: Project | null;
-}) {
+export function ProjectSiblingNav({ prev, next }: { prev: Project | null; next: Project | null }) {
   const { t } = useTranslation("projects");
   const localePath = useLocalePath();
   return (
