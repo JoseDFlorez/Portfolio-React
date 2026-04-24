@@ -10,6 +10,7 @@ const schema = z.object({
   VERCEL_GIT_COMMIT_SHA: z.string().optional(),
   VERCEL_PROJECT_PRODUCTION_URL: z.string().optional(),
   VERCEL_URL: z.string().optional(),
+  PLAYWRIGHT: z.string().optional(),
 });
 
 const parsed = schema.safeParse(process.env);
@@ -23,3 +24,5 @@ export const env = parsed.data;
 
 export const mailConfigured =
   Boolean(env.RESEND_API_KEY) && Boolean(env.MAIL_FROM) && Boolean(env.MAIL_TO);
+
+export const e2eMode = env.PLAYWRIGHT === "1";

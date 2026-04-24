@@ -64,7 +64,9 @@
   },
   "skills_matrix": {
     "label": "Stack",
-    "suffix": "Conjunto de trabajo"
+    "suffix": "Conjunto de trabajo",
+    "related_work": "Usado en",
+    "related_hint": "Enfoca una habilidad para ver proyectos relacionados."
   },
   "skills_labels": {
     "languages": "Lenguajes",

@@ -1,4 +1,4 @@
-import { env, mailConfigured } from "./env.server";
+import { e2eMode, env, mailConfigured } from "./env.server";
 import { log } from "./logger.server";
 
 type SendArgs = {
@@ -20,6 +20,16 @@ function escapeHtml(value: string): string {
 }
 
 export async function sendContactEmail(args: SendArgs): Promise<SendResult> {
+  if (e2eMode) {
+    log.warn("mail.stubbed", {
+      reason: "playwright",
+      name: args.name,
+      email: args.email,
+      subject: args.subject,
+    });
+    return { ok: true, id: "playwright-stubbed", stubbed: true };
+  }
+
   if (!mailConfigured) {
     const reason = "missing RESEND_API_KEY / MAIL_FROM / MAIL_TO";
     log.warn("mail.stubbed", {

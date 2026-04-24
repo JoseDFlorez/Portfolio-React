@@ -180,10 +180,83 @@
   transform: scaleX(1);
 }
 
+html.motion-ok
+  :where(
+    [data-scroll-reveal],
+    [data-featured-reveal],
+    [data-home-about-reveal],
+    [data-home-contact-reveal],
+    [data-home-skills-reveal],
+    [data-about-reveal],
+    [data-footer-reveal],
+    [data-contact-social],
+    [data-project-narrative],
+    [data-project-list-row],
+    [data-hero-motion],
+    [data-about-masthead],
+    [data-contact-motion],
+    [data-contact-form-field],
+    [data-home-cta]
+  ):not([data-motion-ready]) {
+  --motion-start-y: 24px;
+  opacity: 0;
+  transform: translateY(var(--motion-start-y));
+}
+
+html.motion-ok
+  :where([data-hero-motion], [data-about-masthead], [data-contact-motion]):not(
+    [data-motion-ready]
+  ) {
+  --motion-start-y: 18px;
+}
+
+html.motion-ok :where([data-contact-form-field], [data-home-cta]):not([data-motion-ready]) {
+  --motion-start-y: 12px;
+}
+
+@media (max-width: 767px) {
+  html.motion-ok
+    :where(
+      [data-scroll-reveal],
+      [data-featured-reveal],
+      [data-home-about-reveal],
+      [data-home-contact-reveal],
+      [data-home-skills-reveal],
+      [data-about-reveal],
+      [data-footer-reveal],
+      [data-contact-social],
+      [data-project-narrative],
+      [data-project-list-row]
+    ):not([data-motion-ready]) {
+    --motion-start-y: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+  :where(
+    [data-scroll-reveal],
+    [data-featured-reveal],
+    [data-home-about-reveal],
+    [data-home-contact-reveal],
+    [data-home-skills-reveal],
+    [data-about-reveal],
+    [data-footer-reveal],
+    [data-contact-social],
+    [data-project-narrative],
+    [data-project-list-row],
+    [data-hero-motion],
+    [data-about-masthead],
+    [data-contact-motion],
+    [data-contact-form-field],
+    [data-home-cta]
+  ) {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
   }
   [data-hairline="reveal"] {
     transform: scaleX(1) !important;

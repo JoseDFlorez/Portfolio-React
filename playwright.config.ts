@@ -24,6 +24,10 @@ export default defineConfig({
   webServer: {
     command: "pnpm build && pnpm start",
     url: BASE_URL,
+    env: {
+      ...process.env,
+      PLAYWRIGHT: "1",
+    },
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     stdout: "pipe",

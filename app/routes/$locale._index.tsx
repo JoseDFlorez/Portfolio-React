@@ -1,4 +1,5 @@
 import type { Route } from "./+types/$locale._index";
+import { useDelayedActiveValue } from "~/hooks/use-delayed-active-value";
 
 import { HeroSection } from "~/features/home/components/hero-section";
 import { CurrentlyStrip } from "~/features/home/components/currently-strip";
@@ -48,14 +49,24 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function Index({ loaderData }: Route.ComponentProps) {
+  const skillInteraction = useDelayedActiveValue<string>();
+
   return (
     <>
       <HeroSection />
       <HomeCtaRow />
       <CurrentlyStrip />
-      <FeaturedProjectsList projects={loaderData.featured} />
+      <FeaturedProjectsList
+        projects={loaderData.featured}
+        activeSkill={skillInteraction.activeValue}
+      />
       <HomeAboutStrip />
-      <HomeSkillsSnapshot rows={loaderData.snapshotRows} />
+      <HomeSkillsSnapshot
+        rows={loaderData.snapshotRows}
+        activeSkill={skillInteraction.activeValue}
+        onSkillActivate={skillInteraction.activate}
+        onSkillDeactivate={skillInteraction.scheduleReset}
+      />
       <HomeContactCta />
     </>
   );

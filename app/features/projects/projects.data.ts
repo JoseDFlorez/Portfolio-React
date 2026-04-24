@@ -52,8 +52,52 @@ const raw: Project[] = [
 
 export const projects = projectSchema.array().parse(raw);
 
+const skillProjectRelations: Record<string, string[]> = {
+  "asp.net core": ["sgci-app"],
+  "c#": ["sgci-app", "campuslove"],
+  "clean architecture": ["spacex-explorer", "sgci-app"],
+  "console app": ["campuslove"],
+  ctes: ["sgci-app"],
+  dapper: ["sgci-app"],
+  flask: ["todo-list-flask"],
+  "git / gitflow": projects.map((p) => p.slug),
+  "hexagonal architecture": ["sgci-app"],
+  "html/css": ["formula1-webcomponents", "todo-list-flask"],
+  javascript: ["formula1-webcomponents"],
+  "jetpack compose": ["spacex-explorer"],
+  kotlin: ["spacex-explorer"],
+  migrations: ["sgci-app", "campuslove"],
+  postgresql: ["sgci-app", "campuslove"],
+  python: ["todo-list-flask"],
+  pythonanywhere: ["todo-list-flask"],
+  rbac: ["sgci-app"],
+  sqlite: ["todo-list-flask"],
+  sql: ["sgci-app", "campuslove", "todo-list-flask"],
+  "stored functions": ["sgci-app"],
+  "three.js": ["formula1-webcomponents"],
+  "unit of work": ["sgci-app"],
+  "web components": ["formula1-webcomponents"],
+};
+
+function normalizeSkill(skill: string): string {
+  return skill.trim().toLowerCase();
+}
+
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+export function getProjectSlugsForSkill(skill: string): string[] {
+  const relation = skillProjectRelations[normalizeSkill(skill)] ?? [];
+  const known = new Set(projects.map((p) => p.slug));
+  return relation.filter((slug) => known.has(slug));
+}
+
+export function getProjectTitlesForSkill(
+  skill: string,
+  resolveTitle: (slug: string) => string,
+): string[] {
+  return getProjectSlugsForSkill(skill).map(resolveTitle);
 }
 
 export function getFeaturedProjects(): Project[] {

@@ -12,7 +12,10 @@ export function ContactSideNote() {
     }
   })();
   return (
-    <aside className="flex flex-col gap-6 border-l border-border pl-6 font-sans text-[12px] leading-relaxed text-muted-foreground md:pl-10">
+    <aside
+      data-contact-motion
+      className="flex flex-col gap-6 border-l border-border pl-6 font-sans text-[12px] leading-relaxed text-muted-foreground md:pl-10"
+    >
       <div>
         <p className="font-sans text-[10px] uppercase tracking-[0.22em] text-foreground/70">
           {t("side_note.response.heading")}

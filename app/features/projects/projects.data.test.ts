@@ -3,6 +3,8 @@ import {
   getFeaturedProjects,
   getProjectBySlug,
   getProjectFacets,
+  getProjectSlugsForSkill,
+  getProjectTitlesForSkill,
   getProjectSiblings,
   projects,
 } from "./projects.data";
@@ -56,6 +58,18 @@ describe("projects data", () => {
     expect(facets.stacks.length).toBeGreaterThan(0);
     const categorySum = facets.categories.reduce((a, c) => a + c.count, 0);
     expect(categorySum).toBe(projects.length);
+  });
+
+  it("maps skills to known project slugs", () => {
+    expect(getProjectSlugsForSkill("PostgreSQL")).toEqual(["sgci-app", "campuslove"]);
+    expect(getProjectSlugsForSkill("Three.js")).toEqual(["formula1-webcomponents"]);
+    expect(getProjectSlugsForSkill("not-a-skill")).toEqual([]);
+  });
+
+  it("resolves project titles for a skill", () => {
+    expect(getProjectTitlesForSkill("Flask", (slug) => `title:${slug}`)).toEqual([
+      "title:todo-list-flask",
+    ]);
   });
 
   it("returns siblings in list order", () => {

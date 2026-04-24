@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { FileDown } from "lucide-react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
@@ -6,6 +7,7 @@ import { MonogramJF } from "~/components/editorial/monogram";
 import { SystemLedger } from "~/components/layout/system-ledger";
 import type { BuildInfo } from "~/lib/build-info.server";
 import { useLocalePath } from "~/i18n/use-locale-path";
+import { useScrollReveal } from "~/lib/motion";
 
 const SOCIALS = [
   {
@@ -35,10 +37,14 @@ const NAV_ITEMS = [
 export function SiteFooter({ build }: { build: BuildInfo }) {
   const { t } = useTranslation("common");
   const localePath = useLocalePath();
+  const scopeRef = useRef<HTMLElement>(null);
+
+  useScrollReveal(scopeRef, "[data-footer-reveal]");
+
   return (
-    <footer className="mt-24 border-t border-border bg-background">
+    <footer ref={scopeRef} className="mt-24 border-t border-border bg-background">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-3 md:px-8 md:py-16 lg:px-16">
-        <div className="flex flex-col gap-4">
+        <div data-footer-reveal className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
             <MonogramJF className="text-foreground" />
             <span className="font-heading text-lg tracking-tight">José Flórez</span>
@@ -56,7 +62,7 @@ export function SiteFooter({ build }: { build: BuildInfo }) {
           </a>
         </div>
 
-        <nav aria-label="Footer navigation" className="flex flex-col gap-3">
+        <nav data-footer-reveal aria-label="Footer navigation" className="flex flex-col gap-3">
           <p className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             {t("footer.navigation_heading")}
           </p>
@@ -75,7 +81,7 @@ export function SiteFooter({ build }: { build: BuildInfo }) {
           </ul>
         </nav>
 
-        <div className="flex flex-col gap-3">
+        <div data-footer-reveal className="flex flex-col gap-3">
           <p className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
             {t("footer.elsewhere_heading")}
           </p>
