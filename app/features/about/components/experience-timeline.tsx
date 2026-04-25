@@ -1,16 +1,31 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { Hairline } from "~/components/editorial/hairline";
 import { YearNumeral } from "~/components/editorial/year-numeral";
 import { experience } from "~/features/about/about.data";
+import { useScrollReveal } from "~/lib/motion";
 
 export function ExperienceTimeline() {
   const { t } = useTranslation("about");
+  const scopeRef = useRef<HTMLElement>(null);
+
+  useScrollReveal(scopeRef, "[data-about-reveal]");
+
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral numeral="001" label={t("experience.label")} suffix={t("experience.suffix")} />
-      <h2 className="mt-6 max-w-3xl font-heading text-3xl font-light leading-tight tracking-tight md:text-5xl">
+    <section ref={scopeRef} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
+      <div data-about-reveal>
+        <SectionNumeral
+          numeral="001"
+          label={t("experience.label")}
+          suffix={t("experience.suffix")}
+        />
+      </div>
+      <h2
+        data-about-reveal
+        className="mt-6 max-w-3xl font-heading text-3xl font-light leading-tight tracking-tight md:text-5xl"
+      >
         {t("experience.h2")}
       </h2>
       <Hairline className="my-10" />
@@ -22,7 +37,7 @@ export function ExperienceTimeline() {
           }) as string[];
           const role = t(`experience.${entry.id}.role`);
           return (
-            <li key={`${entry.company}-${entry.yearStart}`}>
+            <li key={`${entry.company}-${entry.yearStart}`} data-about-reveal>
               <div className="grid gap-8 md:grid-cols-[auto,1fr] md:gap-12">
                 <div className="flex items-start gap-4 md:w-40">
                   <YearNumeral year={entry.yearStart} />

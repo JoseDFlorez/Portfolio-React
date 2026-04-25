@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import { ProjectImage } from "~/features/projects/components/project-image";
 import type { Project } from "~/features/projects/projects.schema";
 
 export function ProjectGallery({ project }: { project: Project }) {
@@ -8,12 +9,13 @@ export function ProjectGallery({ project }: { project: Project }) {
   return (
     <figure className="mt-12">
       <div className="relative aspect-16/10 w-full overflow-hidden border border-border bg-secondary">
-        <img
-          src={project.thumbnail}
+        <ProjectImage
+          project={project}
           alt={altText}
           loading="eager"
           fetchPriority="high"
           decoding="async"
+          sizes="(min-width: 1280px) 1152px, calc(100vw - 2rem)"
           style={{ viewTransitionName: `project-${project.slug}` }}
           className="h-full w-full object-cover"
         />

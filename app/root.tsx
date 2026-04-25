@@ -22,6 +22,7 @@ import frauncesLatinUrl from "@fontsource-variable/fraunces/files/fraunces-latin
 import geistMonoLatinUrl from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
 import "./app.css";
 import { themeInitScript } from "~/hooks/use-theme";
+import { motionInitScript } from "~/lib/motion-init-script";
 import { SiteShell } from "~/components/layout/site-shell";
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { getBuildInfo, type BuildInfo } from "~/lib/build-info.server";
@@ -75,6 +76,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
         <script nonce={cspNonce} dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script nonce={cspNonce} dangerouslySetInnerHTML={{ __html: motionInitScript }} />
       </head>
       <body>
         {children}

@@ -114,7 +114,7 @@ export const profile = {
   location: "Bucaramanga, Santander, Colombia",
   email: "jose.david.florez.navarrete@gmail.com",
   phone: "+57 301 538 6058",
-  github: "https://github.com/JoseDFN",
+  github: "https://github.com/JoseDFlorez",
   linkedin: "https://www.linkedin.com/in/josedavidflorez/",
   currentRole: {
     company: "Planeta IP Comunicaciones SAS ESP",

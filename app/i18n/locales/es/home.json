@@ -23,6 +23,8 @@
   "skills": {
     "label": "Stack",
     "suffix": "Conjunto de trabajo",
+    "related_work": "Usado en",
+    "related_hint": "Enfoca una habilidad para ver proyectos relacionados.",
     "groups": {
       "languages": "Lenguajes",
       "backend": "Backend",

@@ -62,7 +62,9 @@
   },
   "skills_matrix": {
     "label": "Stack",
-    "suffix": "Working set"
+    "suffix": "Working set",
+    "related_work": "Used in",
+    "related_hint": "Focus a skill to see related work."
   },
   "skills_labels": {
     "languages": "Languages",

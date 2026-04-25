@@ -1,24 +1,73 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { Hairline } from "~/components/editorial/hairline";
 import { profile } from "~/features/about/about.data";
+import {
+  isInitialMotionEnabled,
+  markMotionReady,
+  motionQueries,
+  prepareMotionTargets,
+  setMotionEndState,
+  useScopedGsap,
+} from "~/lib/motion";
 
 export function AboutMasthead() {
   const { t } = useTranslation("about");
+  const scopeRef = useRef<HTMLElement>(null);
+
+  useScopedGsap(scopeRef, (gsap) => {
+    const root = scopeRef.current;
+    if (!root) return;
+
+    const mm = gsap.matchMedia(root);
+    mm.add(motionQueries, (context) => {
+      const targets = gsap.utils.toArray<HTMLElement>("[data-about-masthead]", root);
+      if (context.conditions?.reduceMotion || !isInitialMotionEnabled()) {
+        markMotionReady(targets);
+        setMotionEndState(gsap, targets);
+        return;
+      }
+
+      prepareMotionTargets(gsap, targets, { opacity: 0, y: 18 });
+      gsap.to(targets, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.08,
+        clearProps: "transform,opacity,visibility",
+      });
+    });
+
+    return () => mm.revert();
+  });
+
   return (
-    <section className="mx-auto grid max-w-7xl gap-10 px-4 pt-16 md:px-8 md:pt-24 lg:px-16 lg:pt-32">
-      <SectionNumeral
-        numeral="000"
-        label={t("masthead.label")}
-        suffix={profile.location.toUpperCase()}
-      />
-      <h1 className="max-w-5xl font-heading text-5xl font-light leading-[1.02] tracking-tight md:text-7xl">
+    <section
+      ref={scopeRef}
+      className="mx-auto grid max-w-7xl gap-10 px-4 pt-16 md:px-8 md:pt-24 lg:px-16 lg:pt-32"
+    >
+      <div data-about-masthead>
+        <SectionNumeral
+          numeral="000"
+          label={t("masthead.label")}
+          suffix={profile.location.toUpperCase()}
+        />
+      </div>
+      <h1
+        data-about-masthead
+        className="max-w-5xl font-heading text-5xl font-light leading-[1.02] tracking-tight md:text-7xl"
+      >
         <span className="block">{t("masthead.h1_line_1")}</span>
         <span className="block italic text-muted-foreground">{t("masthead.h1_line_2")}</span>
       </h1>
-      <Hairline />
-      <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] md:gap-16">
+      <div data-about-masthead>
+        <Hairline />
+      </div>
+      <div
+        data-about-masthead
+        className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] md:gap-16"
+      >
         <figure className="flex flex-col gap-3">
           <div className="relative aspect-4/5 w-full overflow-hidden border border-border bg-secondary">
             <img

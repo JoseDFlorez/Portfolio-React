@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useFetcher } from "react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,6 +18,14 @@ import {
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { createContactSchema, type ContactInput } from "~/features/contact/contact.schema";
+import {
+  isInitialMotionEnabled,
+  markMotionReady,
+  motionQueries,
+  prepareMotionTargets,
+  setMotionEndState,
+  useScopedGsap,
+} from "~/lib/motion";
 
 type ActionData =
   | { ok: true; id: string }
@@ -27,6 +35,7 @@ export function ContactForm() {
   const { t } = useTranslation("contact");
   const fetcher = useFetcher<ActionData>();
   const pending = fetcher.state !== "idle";
+  const scopeRef = useRef<HTMLFormElement>(null);
 
   const schema = useMemo(() => createContactSchema((key) => t(`errors.${key}`)), [t]);
 
@@ -64,9 +73,40 @@ export function ContactForm() {
     fetcher.submit(formData, { method: "post" });
   }
 
+  useScopedGsap(scopeRef, (gsap) => {
+    const root = scopeRef.current;
+    if (!root) return;
+
+    const mm = gsap.matchMedia(root);
+    mm.add(motionQueries, (context) => {
+      const targets = gsap.utils.toArray<HTMLElement>("[data-contact-form-field]", root);
+      if (context.conditions?.reduceMotion || !isInitialMotionEnabled()) {
+        markMotionReady(targets);
+        setMotionEndState(gsap, targets);
+        return;
+      }
+
+      prepareMotionTargets(gsap, targets, { opacity: 0, y: 12 });
+      gsap.to(targets, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.06,
+        delay: 0.16,
+        clearProps: "transform,opacity,visibility",
+      });
+    });
+
+    return () => mm.revert();
+  });
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-8" noValidate>
+      <form
+        ref={scopeRef}
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="flex flex-col gap-8"
+        noValidate
+      >
         <div className="hidden" aria-hidden="true">
           <label htmlFor="website">{t("form.honeypot_label")}</label>
           <input
@@ -81,7 +121,7 @@ export function ContactForm() {
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem>
+            <FormItem data-contact-form-field>
               <FormLabel className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 {t("form.name.label")}
               </FormLabel>
@@ -102,7 +142,7 @@ export function ContactForm() {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem>
+            <FormItem data-contact-form-field>
               <FormLabel className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 {t("form.email.label")}
               </FormLabel>
@@ -124,7 +164,7 @@ export function ContactForm() {
           control={form.control}
           name="subject"
           render={({ field }) => (
-            <FormItem>
+            <FormItem data-contact-form-field>
               <FormLabel className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 {t("form.subject.label")}
               </FormLabel>
@@ -144,7 +184,7 @@ export function ContactForm() {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem>
+            <FormItem data-contact-form-field>
               <FormLabel className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 {t("form.message.label")}
               </FormLabel>
@@ -161,7 +201,7 @@ export function ContactForm() {
           )}
         />
 
-        <div className="flex items-center justify-end gap-4">
+        <div data-contact-form-field className="flex items-center justify-end gap-4">
           <Button
             type="submit"
             size="lg"

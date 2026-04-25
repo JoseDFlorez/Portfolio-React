@@ -1,15 +1,21 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import type { NarrativeBlock, Project } from "~/features/projects/projects.schema";
+import { useScrollReveal } from "~/lib/motion";
 
 export function ProjectNarrative({ project }: { project: Project }) {
   const { t } = useTranslation("projects");
+  const scopeRef = useRef<HTMLElement>(null);
   const blocks = t(`narratives.${project.slug}`, {
     returnObjects: true,
     defaultValue: [] as NarrativeBlock[],
   }) as NarrativeBlock[];
+
+  useScrollReveal(scopeRef, "[data-project-narrative]");
+
   return (
-    <article className="mx-auto mt-16 grid max-w-3xl gap-8">
+    <article ref={scopeRef} className="mx-auto mt-16 grid max-w-3xl gap-8">
       {blocks.map((block, idx) => (
         <NarrativeNode key={idx} block={block} />
       ))}
@@ -21,19 +27,25 @@ function NarrativeNode({ block }: { block: NarrativeBlock }) {
   switch (block.kind) {
     case "heading":
       return (
-        <h2 className="font-heading text-3xl font-light tracking-tight md:text-4xl">
+        <h2
+          data-project-narrative
+          className="font-heading text-3xl font-light tracking-tight md:text-4xl"
+        >
           {block.text}
         </h2>
       );
     case "paragraph":
       return (
-        <p className="font-sans text-[14px] leading-relaxed text-foreground/85 md:text-[15px]">
+        <p
+          data-project-narrative
+          className="font-sans text-[14px] leading-relaxed text-foreground/85 md:text-[15px]"
+        >
           {block.text}
         </p>
       );
     case "list":
       return (
-        <div className="border-l border-border pl-6">
+        <div data-project-narrative className="border-l border-border pl-6">
           {block.title ? (
             <p className="mb-3 font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
               {block.title}

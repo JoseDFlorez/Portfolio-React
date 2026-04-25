@@ -1,14 +1,22 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import { SectionNumeral } from "~/components/editorial/section-numeral";
 import { Hairline } from "~/components/editorial/hairline";
 import { education } from "~/features/about/about.data";
+import { useScrollReveal } from "~/lib/motion";
 
 export function EducationList() {
   const { t } = useTranslation("about");
+  const scopeRef = useRef<HTMLElement>(null);
+
+  useScrollReveal(scopeRef, "[data-about-reveal]");
+
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
-      <SectionNumeral numeral="002" label={t("education.label")} suffix={t("education.suffix")} />
+    <section ref={scopeRef} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
+      <div data-about-reveal>
+        <SectionNumeral numeral="002" label={t("education.label")} suffix={t("education.suffix")} />
+      </div>
       <Hairline className="my-10" />
       <ul className="flex flex-col gap-10">
         {education.map((entry) => {
@@ -23,6 +31,7 @@ export function EducationList() {
           return (
             <li
               key={`${entry.institution}-${entry.id}`}
+              data-about-reveal
               className="grid gap-6 md:grid-cols-[auto,1fr,auto] md:gap-10"
             >
               <p className="font-sans text-[11px] uppercase tracking-[0.22em] text-muted-foreground md:w-32">
