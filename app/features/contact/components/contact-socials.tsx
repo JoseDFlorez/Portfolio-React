@@ -13,7 +13,7 @@ export function ContactSocials() {
       href: `mailto:${profile.email}`,
       handle: profile.email,
     },
-    { label: t("socials.github"), href: profile.github, handle: "@JoseDFN" },
+    { label: t("socials.github"), href: profile.github, handle: "@JoseDFlorez" },
     {
       label: t("socials.linkedin"),
       href: profile.linkedin,

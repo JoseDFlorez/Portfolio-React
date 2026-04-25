@@ -12,8 +12,8 @@ import { useScrollReveal } from "~/lib/motion";
 const SOCIALS = [
   {
     key: "github",
-    handle: "@JoseDFN",
-    href: "https://github.com/JoseDFN",
+    handle: "@JoseDFlorez",
+    href: "https://github.com/JoseDFlorez",
   },
   {
     key: "linkedin",
