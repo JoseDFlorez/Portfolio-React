@@ -1,8 +1,9 @@
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Hairline } from "~/components/editorial/hairline";
 import { SectionNumeral } from "~/components/editorial/section-numeral";
+import { getProjectSlugsForSkill } from "~/features/projects/projects.data";
 import { useScrollReveal } from "~/lib/motion";
 
 export type SkillsSnapshotRow = {
@@ -25,7 +26,12 @@ export function HomeSkillsSnapshot({
   onSkillDeactivate,
 }: Props) {
   const { t } = useTranslation("home");
+  const { t: tp } = useTranslation("projects");
   const scopeRef = useRef<HTMLElement>(null);
+  const activeProjectSlugs = useMemo(
+    () => (activeSkill ? getProjectSlugsForSkill(activeSkill) : []),
+    [activeSkill],
+  );
 
   useScrollReveal(scopeRef, "[data-home-skills-reveal]");
 
@@ -62,7 +68,7 @@ export function HomeSkillsSnapshot({
                       onPointerLeave={onSkillDeactivate}
                       onFocus={() => onSkillActivate?.(item)}
                       onBlur={onSkillDeactivate}
-                      className="rounded-none text-left text-foreground/85 underline-offset-4 transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[active=true]:text-primary"
+                      className="rounded-none text-left text-foreground/85 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background data-[active=true]:text-primary"
                       data-active={isActive ? "true" : "false"}
                     >
                       {item}
@@ -74,7 +80,25 @@ export function HomeSkillsSnapshot({
           </div>
         ))}
       </dl>
-      <Hairline />
+      <div
+        data-home-skills-reveal
+        className="mt-6 min-h-10 border-l border-border pl-6 font-sans text-[12px] leading-relaxed text-muted-foreground"
+        aria-live="polite"
+      >
+        {activeSkill && activeProjectSlugs.length > 0 ? (
+          <p>
+            <span className="text-[10px] uppercase tracking-[0.22em] text-foreground/70">
+              {t("skills.related_work")} · {activeSkill}
+            </span>{" "}
+            <span className="text-foreground/85">
+              {activeProjectSlugs.map((slug) => tp(`titles.${slug}`)).join(" · ")}
+            </span>
+          </p>
+        ) : (
+          <p className="text-[10px] uppercase tracking-[0.22em]">{t("skills.related_hint")}</p>
+        )}
+      </div>
+      <Hairline className="mt-8" />
     </section>
   );
 }
