@@ -1,18 +1,27 @@
 {
   "hero": {
     "eyebrow_label": "Introduction",
-    "h1_line_1": "Backend systems,",
-    "h1_line_2": "drawn before they're built.",
-    "subhead": "Full-stack .NET engineer specializing in Clean Architecture, PostgreSQL, and AI-assisted delivery. Currently shipping production services at Planeta IP Comunicaciones."
+    "h1_line_1": "Web applications,",
+    "h1_line_2": "built end to end.",
+    "subhead": "Software Engineer with a full-stack approach. I build web interfaces with React and TypeScript, APIs with C# and .NET, and applications backed by PostgreSQL. My professional experience includes emergency-services, healthcare SaaS, and referral-tracking systems."
   },
-  "currently": {
-    "prefix": "Currently",
-    "since_suffix": " →"
+  "blueprint": {
+    "label": "Full-stack flow",
+    "description": "A React and TypeScript interface sends a request to a .NET API. Application logic reads PostgreSQL data or a cache, then returns a response to the interface.",
+    "pause": "Pause animation",
+    "play": "Play animation",
+    "nodes": {
+      "client": { "title": "FRONTEND", "detail": "React / TS" },
+      "api": { "title": ".NET API", "detail": "JWT / RBAC" },
+      "application": { "title": "APPLICATION", "detail": "Use cases" },
+      "data": { "title": "POSTGRESQL", "detail": "Dapper / SQL" },
+      "cache": { "title": "CACHE", "detail": "Read models" }
+    }
   },
   "featured": {
     "label": "Featured",
     "suffix": "Selected work",
-    "h2": "A curated slice of the systems, apps, and interfaces I've shipped.",
+    "h2": "Web interfaces, full-stack applications, and mobile projects.",
     "all_projects": "All projects"
   },
   "about_strip": {
@@ -29,8 +38,9 @@
       "languages": "Languages",
       "backend": "Backend",
       "data": "Data",
-      "frontend": "Frontend",
-      "tooling": "Tooling"
+      "frontend": "Frontend & mobile",
+      "tooling": "Tooling",
+      "architecture": "Architecture & security"
     }
   },
   "contact_cta": {
@@ -39,5 +49,8 @@
     "headline_1": "Let's build",
     "headline_2": "something together.",
     "open_contact": "Open contact"
+  },
+  "latest_experience": {
+    "prefix": "Latest experience"
   }
 }

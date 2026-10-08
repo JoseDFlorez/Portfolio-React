@@ -49,39 +49,41 @@ export function HeroSection() {
   return (
     <section
       ref={scopeRef}
-      className="relative mx-auto grid max-w-7xl overflow-hidden px-4 pt-16 pb-20 md:px-8 md:pt-24 md:pb-28 lg:px-16 lg:pt-32 lg:pb-40"
+      className="relative mx-auto grid max-w-7xl gap-10 px-4 pt-16 pb-6 md:gap-12 md:px-8 md:pt-20 lg:px-16 lg:pt-24"
     >
-      <HeroBlueprint />
-      <div className="relative z-10 grid gap-10">
-        <div data-hero-motion>
-          <SectionNumeral
-            numeral="000"
-            label={t("hero.eyebrow_label")}
-            suffix={
-              <>
-                {profile.name.toUpperCase()}
-                <span aria-hidden="true"> · </span>
-                {profile.location.split(",")[0]?.toUpperCase() ?? ""}
-              </>
-            }
-          />
+      <div data-hero-motion>
+        <SectionNumeral
+          numeral="000"
+          label={t("hero.eyebrow_label")}
+          suffix={
+            <>
+              {profile.name.toUpperCase()}
+              <span aria-hidden="true"> · </span>
+              {profile.location.split(",")[0]?.toUpperCase() ?? ""}
+            </>
+          }
+        />
+      </div>
+      <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+        <div className="min-w-0 space-y-8">
+          <h1
+            data-hero-motion
+            className="font-heading text-5xl font-light leading-[1.04] tracking-tight text-foreground md:text-7xl lg:text-[clamp(3.5rem,5.6vw,5rem)]"
+          >
+            <span className="block">{t("hero.h1_line_1")}</span>
+            <span className="block italic text-muted-foreground">{t("hero.h1_line_2")}</span>
+          </h1>
+          <p
+            data-hero-motion
+            className="max-w-2xl font-sans text-sm leading-relaxed text-muted-foreground md:text-[15px] lg:max-w-[54ch]"
+          >
+            {t("hero.subhead")}
+          </p>
         </div>
-        <h1
-          data-hero-motion
-          className="font-heading text-5xl font-light leading-[1.02] tracking-tight text-foreground md:text-7xl lg:text-[104px]"
-        >
-          <span className="block">{t("hero.h1_line_1")}</span>
-          <span className="block italic text-muted-foreground">{t("hero.h1_line_2")}</span>
-        </h1>
-        <div data-hero-motion>
-          <Hairline />
-        </div>
-        <p
-          data-hero-motion
-          className="max-w-2xl font-sans text-sm leading-relaxed text-muted-foreground md:text-[15px]"
-        >
-          {t("hero.subhead")}
-        </p>
+        <HeroBlueprint />
+      </div>
+      <div data-hero-motion>
+        <Hairline />
       </div>
     </section>
   );

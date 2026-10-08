@@ -7,6 +7,13 @@ type ScrollTriggerPlugin = typeof import("gsap/ScrollTrigger").ScrollTrigger;
 type MotionSetup = (gsap: Gsap) => void | (() => void);
 type ScrollSetup = (gsap: Gsap, ScrollTrigger: ScrollTriggerPlugin) => void | (() => void);
 
+type ScrollRevealOptions = {
+  duration?: number;
+  stagger?: number;
+  start?: string;
+  distance?: number;
+};
+
 let gsapPromise: Promise<Gsap> | null = null;
 let scrollTriggerPromise: Promise<{ gsap: Gsap; ScrollTrigger: ScrollTriggerPlugin }> | null = null;
 
@@ -134,7 +141,10 @@ export function useScrollReveal(
   scope: RefObject<Element | null>,
   selector = "[data-scroll-reveal]",
   dependencies: unknown[] = [],
+  options: ScrollRevealOptions = {},
 ) {
+  const { duration = 0.45, stagger = 0.06, start = "top 88%", distance } = options;
+
   useScopedScrollTrigger(
     scope,
     (gsap, ScrollTrigger) => {
@@ -153,15 +163,19 @@ export function useScrollReveal(
           return;
         }
 
-        prepareMotionTargets(gsap, targets, { opacity: 0, y: conditions.isMobile ? 14 : 24 });
+        prepareMotionTargets(gsap, targets, {
+          opacity: 0,
+          y: distance ?? (conditions.isMobile ? 14 : 24),
+        });
         ScrollTrigger.batch(targets, {
-          start: "top 88%",
+          start,
           once: true,
           onEnter: (batch) => {
             gsap.to(batch, {
               opacity: 1,
               y: 0,
-              stagger: 0.06,
+              duration,
+              stagger,
               clearProps: "transform,opacity,visibility",
             });
           },
@@ -170,6 +184,6 @@ export function useScrollReveal(
 
       return () => mm.revert();
     },
-    dependencies,
+    [...dependencies, duration, stagger, start, distance],
   );
 }

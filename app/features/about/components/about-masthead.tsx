@@ -98,18 +98,29 @@ export function AboutMasthead() {
         </figure>
 
         <div className="flex flex-col justify-between gap-8 md:py-2">
-          <p className="max-w-[44ch] font-heading text-2xl font-light leading-snug tracking-tight md:text-3xl">
-            {t("lead")}
-          </p>
+          <div className="space-y-6">
+            <p className="max-w-[44ch] font-heading text-2xl font-light leading-snug tracking-tight md:text-3xl">
+              {t("lead")}
+            </p>
+            {(t("background", { returnObjects: true }) as string[]).map((paragraph) => (
+              <p
+                key={paragraph}
+                className="max-w-2xl font-sans text-[14px] leading-relaxed text-foreground/85 md:text-[15px]"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
           <aside className="flex flex-col gap-2 border-t border-dashed border-border pt-4">
             <p className="font-sans text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-              {t("masthead.currently_prefix")}
+              {t("masthead.latest_experience_prefix")}
             </p>
             <p className="font-heading text-xl font-light leading-tight tracking-tight">
-              {profile.currentRole.company}
+              {profile.latestExperience.company}
             </p>
             <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-              {profile.currentRole.title} · {profile.currentRole.since} →
+              {t(`experience.${profile.latestExperience.id}.role`)} ·{" "}
+              {t(`experience.${profile.latestExperience.id}.date_range`)}
             </p>
           </aside>
         </div>

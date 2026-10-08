@@ -15,7 +15,6 @@ const educationEntrySchema = z.object({
   id: z.string().min(1),
   institution: z.string().min(1),
   location: z.string().min(1),
-  dateRange: z.string().min(1),
   hasNotes: z.boolean(),
 });
 
@@ -40,8 +39,8 @@ const experienceRaw: ExperienceEntry[] = [
     company: "Planeta IP Comunicaciones SAS ESP",
     location: "Bucaramanga, Santander, Colombia",
     yearStart: 2025,
-    yearEnd: null,
-    bulletCount: 6,
+    yearEnd: 2026,
+    bulletCount: 8,
   },
 ];
 
@@ -50,14 +49,12 @@ const educationRaw: EducationEntry[] = [
     id: "saint_leo",
     institution: "Saint Leo University",
     location: "Tampa, FL",
-    dateRange: "Mar 2023 – May 2026",
     hasNotes: true,
   },
   {
     id: "campuslands",
     institution: "Campuslands",
     location: "Floridablanca, Colombia",
-    dateRange: "Sept 2024 – June 2025",
     hasNotes: true,
   },
 ];
@@ -65,35 +62,61 @@ const educationRaw: EducationEntry[] = [
 const skillsRaw: SkillGroup[] = [
   {
     id: "languages",
-    items: ["C#", "Python", "JavaScript", "TypeScript", "HTML/CSS", "SQL", "Kotlin"],
+    items: ["C#", "TypeScript", "JavaScript", "Python", "SQL", "HTML/CSS", "Kotlin"],
+  },
+  {
+    id: "frontend",
+    items: ["React", "React Router", "Tailwind CSS", "Zod", "i18next", "Jetpack Compose"],
   },
   {
     id: "backend",
     items: [
-      "ASP.NET Core",
+      ".NET 8",
+      "ASP.NET Core Web API",
+      "REST APIs",
       "Dapper",
-      "Unit of Work",
+      "Entity Framework Core",
+      "FluentValidation",
+      "Swagger/OpenAPI",
+      "Serilog",
       "Flask",
-      "Jetpack Compose",
+    ],
+  },
+  {
+    id: "architecture",
+    items: [
       "Clean Architecture",
-      "Hexagonal Architecture",
+      "SOLID",
+      "Unit of Work",
+      "JWT",
+      "Refresh-token rotation",
       "RBAC",
+      "Hierarchical authorization",
     ],
   },
   {
     id: "data",
-    items: ["PostgreSQL", "Stored Functions", "CTEs", "Migrations", "MySQL", "SQLite"],
-  },
-  {
-    id: "frontend",
-    items: ["React", "React Router", "Tailwind CSS", "shadcn/ui", "Web Components", "Three.js"],
+    items: [
+      "PostgreSQL 17",
+      "Schema design",
+      "Migrations",
+      "Query optimization",
+      "Stored functions",
+      "CTEs",
+      "MySQL",
+      "SQLite",
+    ],
   },
   {
     id: "tooling",
     items: [
-      "Git / GitFlow",
       "Docker",
-      "PythonAnywhere",
+      "Git",
+      "GitHub",
+      "Jira",
+      "Node.js",
+      "Vercel",
+      "Gemini API",
       "Vitest",
       "Playwright",
       "Claude Code",
@@ -116,9 +139,5 @@ export const profile = {
   phone: "+57 301 538 6058",
   github: "https://github.com/JoseDFlorez",
   linkedin: "https://www.linkedin.com/in/josedavidflorez/",
-  currentRole: {
-    company: "Planeta IP Comunicaciones SAS ESP",
-    title: "Full Stack Developer",
-    since: "Oct 2025",
-  },
+  latestExperience: experience[0]!,
 } as const;

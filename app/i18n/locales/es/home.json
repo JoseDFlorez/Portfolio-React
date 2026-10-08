@@ -1,18 +1,27 @@
 {
   "hero": {
     "eyebrow_label": "Introducción",
-    "h1_line_1": "Sistemas backend,",
-    "h1_line_2": "dibujados antes de construirse.",
-    "subhead": "Ingeniero full-stack .NET especializado en Clean Architecture, PostgreSQL y desarrollo asistido por IA. Actualmente entregando servicios en producción en Planeta IP Comunicaciones."
+    "h1_line_1": "Aplicaciones web,",
+    "h1_line_2": "de principio a fin.",
+    "subhead": "Ingeniero de software con enfoque fullstack. Desarrollo interfaces web con React y TypeScript, APIs con C# y .NET y aplicaciones con PostgreSQL. He trabajado en sistemas para servicios de emergencia, SaaS de salud y seguimiento de referidos."
   },
-  "currently": {
-    "prefix": "Ahora",
-    "since_suffix": " →"
+  "blueprint": {
+    "label": "Flujo fullstack",
+    "description": "Una interfaz con React y TypeScript envía una solicitud a una API .NET. La lógica de aplicación consulta PostgreSQL o la caché y devuelve una respuesta a la interfaz.",
+    "pause": "Pausar animación",
+    "play": "Reproducir animación",
+    "nodes": {
+      "client": { "title": "FRONTEND", "detail": "React / TS" },
+      "api": { "title": "API .NET", "detail": "JWT / RBAC" },
+      "application": { "title": "APLICACIÓN", "detail": "Casos de uso" },
+      "data": { "title": "POSTGRESQL", "detail": "Dapper / SQL" },
+      "cache": { "title": "CACHÉ", "detail": "Modelos de lectura" }
+    }
   },
   "featured": {
     "label": "Destacados",
     "suffix": "Trabajo seleccionado",
-    "h2": "Una muestra curada de los sistemas, apps e interfaces que he entregado.",
+    "h2": "Interfaces web, aplicaciones fullstack y proyectos móviles.",
     "all_projects": "Todos los proyectos"
   },
   "about_strip": {
@@ -29,8 +38,9 @@
       "languages": "Lenguajes",
       "backend": "Backend",
       "data": "Datos",
-      "frontend": "Frontend",
-      "tooling": "Herramientas"
+      "frontend": "Frontend y móvil",
+      "tooling": "Herramientas",
+      "architecture": "Arquitectura y seguridad"
     }
   },
   "contact_cta": {
@@ -39,5 +49,8 @@
     "headline_1": "Construyamos",
     "headline_2": "algo juntos.",
     "open_contact": "Abrir contacto"
+  },
+  "latest_experience": {
+    "prefix": "Última experiencia"
   }
 }

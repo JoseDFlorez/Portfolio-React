@@ -61,7 +61,7 @@ describe("projects data", () => {
   });
 
   it("maps skills to known project slugs", () => {
-    expect(getProjectSlugsForSkill("PostgreSQL")).toEqual(["sgci-app", "campuslove"]);
+    expect(getProjectSlugsForSkill("PostgreSQL")).toEqual(["campuslove"]);
     expect(getProjectSlugsForSkill("Three.js")).toEqual(["formula1-webcomponents"]);
     expect(getProjectSlugsForSkill("not-a-skill")).toEqual([]);
   });

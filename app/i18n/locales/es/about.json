@@ -1,29 +1,32 @@
 {
   "masthead": {
     "label": "Sobre mí",
-    "h1_line_1": "El backend es donde",
-    "h1_line_2": "realmente empieza la construcción.",
+    "h1_line_1": "Hola, soy José.",
+    "h1_line_2": "Desarrollo de principio a fin.",
     "portrait_alt": "José David Flórez Navarrete — retrato",
-    "byline_role": "Full Stack",
-    "currently_prefix": "Ahora"
+    "byline_role": "Ingeniero de software",
+    "latest_experience_prefix": "Última experiencia"
   },
-  "lead": "Construyo sistemas del lado del servidor con la disciplina de quien dibuja la arquitectura primero. Mi trabajo en Planeta IP Comunicaciones SAS ESP gira en torno a servicios C# / ASP.NET respaldados por PostgreSQL y Dapper, con autenticación RBAC y JWT, estructurados con los límites de Clean Architecture. Trato los flujos asistidos por IA — Claude Code, Codex — como herramientas de ingeniería de primera clase: iteración más rápida, pero el estándar de revisión sigue siendo humano.",
-  "tagline": "Sistemas backend, dibujados antes de construirse.",
+  "lead": "Soy José, ingeniero de software con enfoque fullstack. Desarrollo interfaces web con React y TypeScript, APIs con C#/.NET y aplicaciones con PostgreSQL. Mi trabajo incluye proyectos frontend, móviles y fullstack, además de sistemas en producción para servicios de emergencia, SaaS de salud y seguimiento de referidos.",
+  "tagline": "Interfaces web, APIs, bases de datos y arquitectura mantenible.",
   "experience": {
     "label": "Experiencia",
     "suffix": "Línea de tiempo",
-    "h2": "Donde estoy construyendo.",
+    "h2": "Lo que he construido en producción.",
     "present": "— presente",
-    "ended_prefix": "— ",
+    "ended_prefix": "a ",
     "planeta_ip": {
-      "role": "Desarrollador Full Stack",
+      "role": "Ingeniero de software (.NET)",
+      "date_range": "Oct 2025 a 6 oct 2026",
       "bullets": [
-        "Propiedad end-to-end del backend: diseño de esquemas PostgreSQL y migraciones, desarrollo de APIs, integraciones y preparación para producción.",
-        "Implementación de una API REST ASP.NET Core versionada con middleware de excepciones, estandarización de respuestas y rate limiting.",
-        "Autenticación JWT basada en cookies con rotación y hashing de refresh tokens, además de RBAC con políticas jerárquicas.",
-        "Capa de datos orientada a rendimiento con Dapper (SQL parametrizado, paginación/búsqueda, reportes con CTEs) y flujos transaccionales vía Unit of Work.",
-        "Refactorización de funciones almacenadas PostgreSQL de implementaciones hardcodeadas a versiones dinámicas y parametrizadas, con validación por capas para un sistema de gestión de emergencias.",
-        "Integración de flujos de desarrollo asistidos por IA (Claude Code, Codex) en la ingeniería diaria: planeación arquitectónica, revisión de código y diseño de funciones PostgreSQL."
+        "Desarrollé funcionalidades en producción para servicios de emergencia, SaaS de salud y seguimiento de referidos en Planeta IP. Me encargué del diseño de bases de datos, migraciones, APIs ASP.NET Core, integraciones, preparación para despliegues y soporte en producción.",
+        "Diseñé flujos de mantenimiento y órdenes de trabajo para una plataforma de servicios de emergencia, con planes de mantenimiento, seguimiento de horómetros y consolidación de hallazgos.",
+        "Migré lógica de negocio de procedimientos almacenados de PostgreSQL a capas de Clean Architecture. Utilicé FluentValidation, Dapper, SQL parametrizado, CTEs, paginación, consultas por lotes y transacciones con Unit of Work.",
+        "Reconstruí la autenticación con JWT de corta duración en cookies HttpOnly, rotación de refresh tokens, almacenamiento de tokens con hash, limitación de intentos y control de sesiones en toda la API. Eliminé 78 campos de ID de usuario enviados por el cliente para prevenir suplantación y añadí validación de firmas de archivos.",
+        "Lideré el análisis de una base de datos de un SaaS de salud en PostgreSQL 17 con 846 funciones, 219 tablas y 39 millones de filas. Creé herramientas con Node.js y SQL para rastrear dependencias e identificar objetos sin uso.",
+        "Eliminé de forma segura 232 funciones, 25 tablas, 11 vistas y vistas materializadas, y 31 claves foráneas. Liberé 491 MB sin afectar los datos activos ni las llamadas del backend. Verifiqué 25 respaldos pg_dump y moví los puertos de integración a la capa Application.",
+        "Como desarrollador backend principal de un sistema de seguimiento de referidos, construí una API REST versionada con manejo centralizado de errores, respuestas estandarizadas, limitación de solicitudes, autenticación JWT, RBAC y autorización jerárquica.",
+        "Desarrollé reportes con Dapper, exportaciones a PDF y Excel, configuración de fuentes en Docker e integraciones con Gemini con caché y trazabilidad. Utilicé Claude Code y Codex para planificación de arquitectura, revisión de código y apoyo en la implementación."
       ]
     }
   },
@@ -33,32 +36,34 @@
     "saint_leo": {
       "credential": "BS",
       "program": "Ingeniería en Sistemas Computacionales",
-      "notes": ["GPA 3.81 / 4.00", "Dean's Honor List"]
+      "notes": ["Graduado en mayo de 2026", "GPA 3.8 / 4.00", "Dean's Honor List"],
+      "date_range": "Mar 2023 a may 2026"
     },
     "campuslands": {
       "credential": "Bootcamp",
       "program": "Bootcamp de Desarrollo Fullstack",
       "notes": [
         "Programa intensivo enfocado en C#, ASP.NET, PostgreSQL y arquitectura de software."
-      ]
+      ],
+      "date_range": "Sep 2024 a jun 2025"
     }
   },
   "how_i_work": {
     "label": "Método",
     "suffix": "Cómo trabajo",
-    "h2": "Tres compromisos que no negocio.",
+    "h2": "Cómo abordo la ingeniería.",
     "entries": [
       {
-        "title": "Primero los dibujos",
-        "body": "Los diagramas de dominio y casos de uso preceden al código. Los contratos de Clean Architecture mantienen los límites honestos para que la base de código siga siendo manejable mientras crece."
+        "title": "Responsabilidades claras",
+        "body": "Separo el comportamiento de la interfaz, las reglas de negocio y el acceso a datos para que cada componente tenga una responsabilidad clara. Los componentes React, los contratos tipados, Clean Architecture y SOLID guían cómo organizo las aplicaciones."
       },
       {
-        "title": "IA de copiloto, revisión humana",
-        "body": "Claude Code y Codex son aceleradores y primeros revisores. Cada diff igual pasa por una lectura manual y la compuerta de pruebas antes de integrarse."
+        "title": "Identidad y validación",
+        "body": "Combino la respuesta de los formularios en el cliente con validación y autorización en el servidor. Mi trabajo incluye sesiones JWT, rotación de refresh tokens, RBAC, verificación de archivos y formularios validados con Zod."
       },
       {
-        "title": "Prueba por tests",
-        "body": "Vitest y Playwright en la capa web; patrones xUnit en el trabajo de backend. Si importa lo suficiente para entregarse, importa lo suficiente para fijarse con una prueba."
+        "title": "Verificar antes de publicar",
+        "body": "Compruebo dependencias y respaldos antes de las migraciones y pruebo los flujos de usuario en el navegador. Uso herramientas de verificación con Node.js y SQL, Vitest y Playwright para comprobar el comportamiento de los formularios y las respuestas del servidor."
       }
     ]
   },
@@ -72,13 +77,19 @@
     "languages": "Lenguajes",
     "backend": "Backend",
     "data": "Datos",
-    "frontend": "Frontend",
-    "tooling": "Herramientas"
+    "frontend": "Frontend y móvil",
+    "tooling": "Herramientas",
+    "architecture": "Arquitectura y seguridad"
   },
   "cv_cta": {
     "label": "Dossier",
-    "headline": "¿Quieres la versión de una página? Lleva el CV.",
+    "headline": "Mi trayectoria completa está en el CV.",
     "download": "Descargar CV",
     "contact": "Contacto"
-  }
+  },
+  "background": [
+    "Me gradué del B.S. en Ingeniería en Sistemas Computacionales de Saint Leo University en mayo de 2026. También completé el bootcamp intensivo de Desarrollo Fullstack de Campuslands, donde me especialicé en el ecosistema .NET, bases de datos y arquitectura de software.",
+    "Mis proyectos incluyen este portafolio con React y TypeScript, una aplicación de tareas con Flask, autenticación y datos persistentes, un frontend de Fórmula 1 con Web Components y Three.js y una aplicación Android con Kotlin. Abarcan interfaces de usuario, integración de APIs, validación en el servidor y despliegue.",
+    "En Planeta IP desarrollé APIs en producción con C#/.NET y trabajé en diseño de esquemas PostgreSQL, migraciones, autenticación, reportes, integraciones y soporte. Disfruto definir responsabilidades claras entre la interfaz, la lógica de aplicación y los datos. Me interesan el rendimiento, la seguridad, los sistemas distribuidos y las tecnologías cloud."
+  ]
 }

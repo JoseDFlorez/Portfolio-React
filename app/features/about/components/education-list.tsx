@@ -53,7 +53,7 @@ export function EducationList() {
                 ) : null}
               </div>
               <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:text-right">
-                {entry.dateRange}
+                {t(`education.${entry.id}.date_range`)}
               </p>
             </li>
           );

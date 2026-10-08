@@ -24,9 +24,14 @@ export function FeaturedProjectsList({ projects, activeSkill }: Props) {
     () => new Set(activeSkill ? getProjectSlugsForSkill(activeSkill) : []),
     [activeSkill],
   );
-  const hasActiveRelation = relatedSlugs.size > 0;
+  const hasActiveRelation = projects.some((project) => relatedSlugs.has(project.slug));
 
-  useScrollReveal(scopeRef, "[data-featured-reveal]");
+  useScrollReveal(scopeRef, "[data-featured-reveal]", [], {
+    duration: 0.28,
+    stagger: 0.03,
+    start: "top 95%",
+    distance: 12,
+  });
 
   return (
     <section ref={scopeRef} className="mx-auto max-w-7xl px-4 py-16 md:px-8 md:py-24 lg:px-16">
@@ -126,7 +131,7 @@ function FeaturedProjectCard({
       data-project-card={project.slug}
       data-highlighted={highlighted ? "true" : "false"}
       className={cn(
-        "group relative flex min-h-75 flex-col justify-between gap-8 bg-background p-6 transition-[background-color,opacity] duration-300 hover:bg-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:min-h-85 md:p-8",
+        "group relative flex min-h-75 flex-col justify-between gap-8 bg-background p-6 transition-[background-color,opacity] duration-150 hover:bg-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:min-h-85 md:p-8",
         highlighted && "bg-primary/5",
         dimmed && "opacity-45",
       )}
@@ -145,6 +150,7 @@ function FeaturedProjectCard({
           project={project}
           alt={t(`thumbnail_alt.${project.slug}`)}
           loading="lazy"
+          revealOnScroll
           sizes="(min-width: 1280px) 560px, (min-width: 768px) calc((100vw - 7rem) / 2), calc(100vw - 3rem)"
           className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0 group-focus-visible:grayscale-0"
         />

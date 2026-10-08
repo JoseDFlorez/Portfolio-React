@@ -2,13 +2,14 @@ import { useTranslation } from "react-i18next";
 
 import { profile } from "~/features/about/about.data";
 
-export function CurrentlyStrip() {
+export function LatestExperienceStrip() {
   const { t } = useTranslation("home");
+  const { t: ta } = useTranslation("about");
   const parts = [
-    t("currently.prefix"),
-    profile.currentRole.company,
-    profile.currentRole.title,
-    `${profile.currentRole.since}${t("currently.since_suffix")}`,
+    t("latest_experience.prefix"),
+    profile.latestExperience.company,
+    ta(`experience.${profile.latestExperience.id}.role`),
+    ta(`experience.${profile.latestExperience.id}.date_range`),
   ];
 
   return (

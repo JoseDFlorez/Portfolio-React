@@ -31,7 +31,7 @@ describe("about data", () => {
   it("has a consistent profile", () => {
     expect(profile.name).toMatch(/José/);
     expect(profile.email).toMatch(/@/);
-    expect(profile.currentRole.company).toMatch(/Planeta IP/);
+    expect(profile.latestExperience.company).toMatch(/Planeta IP/);
   });
 
   it("has an i18n bullet array per experience entry", () => {
