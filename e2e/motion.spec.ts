@@ -6,7 +6,7 @@ test.describe("motion safety", () => {
     await page.goto("/");
 
     const hero = page.getByRole("heading", { level: 1 });
-    await expect(hero).toContainText(/Backend systems/i);
+    await expect(hero).toContainText(/Web applications/i);
 
     const styles = await hero.evaluate((element) => {
       const computed = window.getComputedStyle(element);
@@ -30,7 +30,7 @@ test.describe("motion safety", () => {
     await page.goto("/");
 
     const hero = page.getByRole("heading", { level: 1 });
-    await expect(hero).toContainText(/Backend systems/i);
+    await expect(hero).toContainText(/Web applications/i);
     await expect(hero).toHaveAttribute("data-motion-ready", "true");
 
     await page.waitForTimeout(2700);
@@ -52,7 +52,7 @@ test.describe("motion safety", () => {
   test("skill focus highlights related featured projects and resets", async ({ page }) => {
     await page.goto("/");
 
-    const skill = page.getByRole("button", { name: "PostgreSQL" });
+    const skill = page.getByRole("button", { name: "C#" });
     await skill.scrollIntoViewIfNeeded();
     await skill.focus();
 
@@ -65,8 +65,8 @@ test.describe("motion safety", () => {
       "0.45",
     );
 
-    await page.getByRole("button", { name: "C#" }).focus();
-    await expect(page.locator("[data-project-card='sgci-app']")).toHaveAttribute(
+    await page.getByRole("button", { name: "JavaScript" }).focus();
+    await expect(page.locator("[data-project-card='formula1-webcomponents']")).toHaveAttribute(
       "data-highlighted",
       "true",
     );
@@ -78,6 +78,26 @@ test.describe("motion safety", () => {
     );
   });
 
+  test("skills used outside featured work keep the featured projects readable", async ({
+    page,
+  }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.goto("/en");
+    await expect(page.getByRole("button", { name: "Pause animation", exact: true })).toBeVisible();
+
+    const skill = page.getByRole("button", { name: "React", exact: true });
+    await skill.scrollIntoViewIfNeeded();
+    await skill.focus();
+    await expect(skill).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator("section").filter({ has: skill })).toContainText("Portfolio React");
+
+    const featured = page.locator("[data-project-card]");
+    await expect(featured).toHaveCount(4);
+    for (const card of await featured.all()) {
+      await expect(card).toHaveCSS("opacity", "1");
+    }
+  });
+
   test("about skills related-work panel does not shift the dossier section", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/en/about");
@@ -86,7 +106,7 @@ test.describe("motion safety", () => {
     await skill.scrollIntoViewIfNeeded();
 
     const dossierHeading = page.getByRole("heading", {
-      name: /Want the one-page version/i,
+      name: /The full background is in my CV/i,
     });
     const topBefore = await dossierHeading.evaluate(
       (element) => element.getBoundingClientRect().top,

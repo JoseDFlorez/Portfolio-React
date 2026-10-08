@@ -180,6 +180,20 @@
   transform: scaleX(1);
 }
 
+html.motion-ok [data-project-image-reveal]:not([data-motion-ready]) {
+  opacity: 0;
+}
+
+[data-project-image-reveal][data-motion-ready] > [data-project-image-load] {
+  opacity: 0;
+  transition: opacity 180ms ease-out;
+}
+
+[data-project-image-reveal][data-motion-ready][data-image-ready="true"]
+  > [data-project-image-load] {
+  opacity: 1;
+}
+
 html.motion-ok
   :where(
     [data-scroll-reveal],
@@ -233,6 +247,12 @@ html.motion-ok :where([data-contact-form-field], [data-home-cta]):not([data-moti
 }
 
 @media (prefers-reduced-motion: reduce) {
+  [data-project-image-reveal],
+  [data-project-image-load] {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;

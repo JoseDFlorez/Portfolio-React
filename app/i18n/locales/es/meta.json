@@ -1,19 +1,19 @@
 {
   "home": {
-    "title": "José Flórez — Ingeniero Full Stack .NET",
-    "description": "Portafolio de José David Flórez Navarrete — ingeniero full-stack .NET especializado en C#, ASP.NET, PostgreSQL y Clean Architecture."
+    "title": "José Flórez | Ingeniero de software · Fullstack",
+    "description": "Ingeniero de software con enfoque fullstack: React, TypeScript, C#/.NET, PostgreSQL, aplicaciones web, APIs y sistemas en producción."
   },
   "about": {
-    "title": "Sobre mí — José Flórez",
-    "description": "Sobre José Flórez — ingeniero full-stack .NET en Planeta IP Comunicaciones. Clean Architecture, PostgreSQL, desarrollo asistido por IA."
+    "title": "Sobre mí | José Flórez",
+    "description": "Ingeniería de software en aplicaciones web, APIs y datos. Proyectos React/TypeScript y sistemas C#/.NET en producción. Graduado en mayo de 2026."
   },
   "projects": {
-    "title": "Proyectos — José Flórez",
-    "description": "Proyectos de software seleccionados de José David Flórez Navarrete, entre categorías de backend, fullstack, mobile y frontend."
+    "title": "Proyectos | José Flórez",
+    "description": "Explora proyectos fullstack, frontend, móviles y de C# de José Flórez: portafolio React/TypeScript, app Flask, simulador de Fórmula 1 y SpaceX Explorer."
   },
   "contact": {
-    "title": "Contacto — José Flórez",
-    "description": "Escríbele a José Flórez — ingeniero full-stack .NET."
+    "title": "Contacto | José Flórez",
+    "description": "Contacta a José Flórez, ingeniero de software con experiencia en React, TypeScript, C#/.NET y PostgreSQL, ubicado en Bucaramanga, Colombia."
   },
   "not_found": {
     "title": "No encontrado — José Flórez"

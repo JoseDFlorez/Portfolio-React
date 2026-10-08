@@ -2,7 +2,7 @@ import type { Route } from "./+types/$locale._index";
 import { useDelayedActiveValue } from "~/hooks/use-delayed-active-value";
 
 import { HeroSection } from "~/features/home/components/hero-section";
-import { CurrentlyStrip } from "~/features/home/components/currently-strip";
+import { LatestExperienceStrip } from "~/features/home/components/latest-experience-strip";
 import { HomeCtaRow } from "~/features/home/components/home-cta-row";
 import { FeaturedProjectsList } from "~/features/home/components/featured-projects-list";
 import { HomeAboutStrip } from "~/features/home/components/home-about-strip";
@@ -17,7 +17,7 @@ import { createI18nInstance } from "~/i18n/config";
 import { localeSchema } from "~/i18n/locale";
 import { alternateLinks, buildMetaEntries } from "~/i18n/meta";
 
-const SNAPSHOT_GROUPS = ["languages", "backend", "data"] as const;
+const SNAPSHOT_GROUPS = ["languages", "frontend", "backend", "data"] as const;
 const SNAPSHOT_CAP = 4;
 
 export function meta({ data: loaderData, location }: Route.MetaArgs) {
@@ -55,7 +55,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
     <>
       <HeroSection />
       <HomeCtaRow />
-      <CurrentlyStrip />
+      <LatestExperienceStrip />
       <FeaturedProjectsList
         projects={loaderData.featured}
         activeSkill={skillInteraction.activeValue}

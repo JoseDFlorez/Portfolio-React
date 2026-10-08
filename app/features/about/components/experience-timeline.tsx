@@ -59,6 +59,9 @@ export function ExperienceTimeline() {
                   <p className="mt-2 font-sans text-[12px] uppercase tracking-[0.2em] text-muted-foreground">
                     {entry.company}
                   </p>
+                  <p className="mt-2 font-sans text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                    {t(`experience.${entry.id}.date_range`)}
+                  </p>
                   <ul className="mt-6 flex flex-col gap-3 border-l border-border pl-6 font-sans text-[14px] leading-relaxed text-foreground/85 md:text-[15px]">
                     {bullets.map((b, i) => (
                       <li key={i} className="flex gap-3">

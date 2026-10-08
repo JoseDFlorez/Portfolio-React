@@ -1,29 +1,32 @@
 {
   "masthead": {
     "label": "About",
-    "h1_line_1": "Backend is where",
-    "h1_line_2": "the building really starts.",
+    "h1_line_1": "Hi, I'm José.",
+    "h1_line_2": "I build across the stack.",
     "portrait_alt": "José David Flórez Navarrete — portrait",
-    "byline_role": "Full Stack",
-    "currently_prefix": "Currently"
+    "byline_role": "Software Engineer",
+    "latest_experience_prefix": "Latest experience"
   },
-  "lead": "I build server-side systems with the discipline of someone who draws the architecture first. My work at Planeta IP Comunicaciones SAS ESP centers on C# / ASP.NET services backed by PostgreSQL and Dapper, with RBAC and JWT auth, structured around Clean Architecture boundaries. I treat AI-assisted workflows — Claude Code, Codex — as first-class engineering tools: faster iteration, but the review standard stays human.",
-  "tagline": "Backend systems, drawn before they're built.",
+  "lead": "I'm José, a Software Engineer with a full-stack approach. I build React and TypeScript web interfaces, C#/.NET APIs, and applications backed by PostgreSQL. My work includes frontend, mobile, and full-stack projects alongside production systems for emergency services, healthcare SaaS, and referral tracking.",
+  "tagline": "Web interfaces, APIs, databases, and maintainable architecture.",
   "experience": {
     "label": "Experience",
     "suffix": "Timeline",
-    "h2": "Where I'm building.",
+    "h2": "What I've built in production.",
     "present": "— present",
-    "ended_prefix": "— ",
+    "ended_prefix": "to ",
     "planeta_ip": {
-      "role": "Full Stack Developer",
+      "role": "Software Engineer (.NET)",
+      "date_range": "Oct 2025 to Oct 6, 2026",
       "bullets": [
-        "End-to-end backend ownership: PostgreSQL schema design and migrations, API development, integrations, and production readiness.",
-        "Implemented a versioned ASP.NET Core REST API with exception middleware, response standardization, and rate limiting.",
-        "Built cookie-based JWT auth with refresh-token rotation and hashing, plus RBAC with hierarchical policies.",
-        "Performance-focused data layer with Dapper (parameterized SQL, paging/search, CTE reporting) and transactional workflows via Unit of Work.",
-        "Refactored PostgreSQL stored functions from hardcoded implementations to dynamic, parameterized versions with layered validation for an emergency-management system.",
-        "Integrated AI-assisted development workflows (Claude Code, Codex) into daily engineering: architecture planning, code review, and PostgreSQL function design."
+        "Delivered production features across emergency-services, healthcare SaaS, and referral-tracking products at Planeta IP. Owned database design and migrations, ASP.NET Core APIs, integrations, deployment readiness, and production support.",
+        "Designed maintenance and work-order workflows for an emergency-services platform, including maintenance plans, hour-meter tracking, and findings aggregation.",
+        "Moved business logic from PostgreSQL stored procedures into Clean Architecture layers. Used FluentValidation, Dapper, parameterized SQL, CTEs, pagination, batched queries, and Unit of Work transactions.",
+        "Rebuilt authentication with short-lived JWTs in HttpOnly cookies, refresh-token rotation, hashed token storage, throttling, and API-wide session enforcement. Removed 78 client-supplied user ID fields to prevent impersonation and added file-signature validation for uploads.",
+        "Led analysis of a PostgreSQL 17 healthcare SaaS database with 846 functions, 219 tables, and 39 million rows. Built Node.js and SQL tooling to trace dependencies and identify unreachable objects.",
+        "Safely removed 232 functions, 25 tables, 11 views and materialized views, and 31 foreign keys, freeing 491 MB while preserving all live data and backend calls. Verified 25 pg_dump backups and moved integration ports into the Application layer.",
+        "As the main backend developer for a referral-tracking system, built a versioned REST API with centralized error handling, standardized responses, rate limiting, JWT authentication, RBAC, and hierarchical authorization.",
+        "Built Dapper-based reporting, PDF and Excel exports, Dockerized font configuration, and Gemini-powered AI features with caching and audit trails. Used Claude Code and Codex for architecture planning, code review, and implementation support."
       ]
     }
   },
@@ -33,30 +36,32 @@
     "saint_leo": {
       "credential": "BS",
       "program": "BS in Computer Systems Engineering",
-      "notes": ["GPA 3.81 / 4.00", "Dean's Honor List"]
+      "notes": ["Graduated May 2026", "GPA 3.8 / 4.00", "Dean's Honor List"],
+      "date_range": "Mar 2023 to May 2026"
     },
     "campuslands": {
       "credential": "Bootcamp",
       "program": "Fullstack Development Bootcamp",
-      "notes": ["Intensive program focused on C#, ASP.NET, PostgreSQL, and software architecture."]
+      "notes": ["Intensive program focused on C#, ASP.NET, PostgreSQL, and software architecture."],
+      "date_range": "Sep 2024 to Jun 2025"
     }
   },
   "how_i_work": {
     "label": "Method",
     "suffix": "How I work",
-    "h2": "Three commitments I won't trade.",
+    "h2": "How I approach engineering.",
     "entries": [
       {
-        "title": "Drawings first",
-        "body": "Domain and use-case diagrams precede code. Clean Architecture contracts keep boundaries honest so the codebase stays tractable as it grows."
+        "title": "Clear responsibilities",
+        "body": "I separate interface behavior, business rules, and data access so each component has a clear responsibility. React components, typed contracts, Clean Architecture, and SOLID guide how I organize applications."
       },
       {
-        "title": "AI-paired, human-reviewed",
-        "body": "Claude Code and Codex act as accelerators and first reviewers. Every diff still passes a manual read and the test gate before it merges."
+        "title": "Identity and validation",
+        "body": "I pair client-side form feedback with server-side validation and authorization. My work includes JWT session handling, refresh-token rotation, RBAC, upload checks, and Zod-validated forms."
       },
       {
-        "title": "Proof by tests",
-        "body": "Vitest and Playwright on the web surface; xUnit patterns on backend work. If it matters enough to ship, it matters enough to pin down with a test."
+        "title": "Verify before release",
+        "body": "I check database dependencies and backups before migrations, and test user flows through the browser. I use Node.js and SQL verification tooling, Vitest, and Playwright to check behavior from forms to server responses."
       }
     ]
   },
@@ -70,13 +75,19 @@
     "languages": "Languages",
     "backend": "Backend",
     "data": "Data",
-    "frontend": "Frontend",
-    "tooling": "Tooling"
+    "frontend": "Frontend & mobile",
+    "tooling": "Tooling",
+    "architecture": "Architecture & security"
   },
   "cv_cta": {
     "label": "Dossier",
-    "headline": "Want the one-page version? Take the CV.",
+    "headline": "The full background is in my CV.",
     "download": "Download CV",
     "contact": "Contact"
-  }
+  },
+  "background": [
+    "I earned my B.S. in Computer Systems Engineering from Saint Leo University in May 2026. I also completed the intensive Fullstack Development bootcamp at Campuslands, where I specialized in the .NET ecosystem, databases, and software architecture.",
+    "My projects include this React and TypeScript portfolio, a Flask task app with authentication and persistent data, a Formula 1 frontend built with Web Components and Three.js, and a Kotlin Android app. They cover user interfaces, API integration, server-side validation, and deployment.",
+    "At Planeta IP, I developed production C#/.NET APIs and worked on PostgreSQL schema design, migrations, authentication, reporting, integrations, and support. I enjoy designing clear responsibilities across the interface, application logic, and data. My interests include performance, security, distributed systems, and cloud technologies."
+  ]
 }

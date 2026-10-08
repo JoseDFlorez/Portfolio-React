@@ -3,7 +3,7 @@
     "label": "Projects",
     "suffix": "Selected work",
     "h1": "Things I've shipped.",
-    "lede": "A curated slice of projects across backend, fullstack, mobile, and frontend. Older bootcamp exercises live in the archive below.",
+    "lede": "Software projects across the stack. Explore React and TypeScript interfaces, a Flask app with authentication and persistent data, a Formula 1 frontend, an Android API client, and C# applications.",
     "stack_separator": " · ",
     "row": {
       "read": "Read"
@@ -33,6 +33,7 @@
     "sibling_next": "Next"
   },
   "titles": {
+    "portfolio-react": "Portfolio React",
     "spacex-explorer": "SpaceX Explorer",
     "sgci-app": "SGCI Inventory System",
     "campuslove": "CampusLove",
@@ -40,6 +41,7 @@
     "formula1-webcomponents": "Formula 1 Simulator"
   },
   "roles": {
+    "portfolio-react": "Fullstack Developer",
     "spacex-explorer": "Mobile Developer",
     "sgci-app": "Backend Developer",
     "campuslove": "Backend Developer",
@@ -47,6 +49,7 @@
     "formula1-webcomponents": "Frontend Developer"
   },
   "summaries": {
+    "portfolio-react": "Bilingual, server-rendered portfolio built with React 19, React Router 7, and TypeScript. Includes localized routes and metadata, a validated contact flow, security headers, and automated tests.",
     "spacex-explorer": "Native Android app that browses SpaceX launch, rocket, and crew data through the public v4 API, organized around Clean Architecture with Hilt-driven DI and Kotlin Coroutines.",
     "sgci-app": ".NET Core CLI business application that manages purchase workflows, stock, third-party relationships, promotional plans, cash registers, and customizable transactions.",
     "campuslove": "Matchmaking simulator backed by PostgreSQL. Users create profiles, browse a match feed, and interact through a modular architecture focused on persistence and data shape.",
@@ -54,6 +57,7 @@
     "formula1-webcomponents": "Interactive Formula 1 management and 3D-simulation app. Manage teams, drivers, and vehicles, then run circuit simulations rendered with Three.js — all composed from native Web Components."
   },
   "thumbnail_alt": {
+    "portfolio-react": "Portfolio React homepage introducing José as a Software Engineer with a full-stack approach.",
     "spacex-explorer": "Editorial placeholder for SpaceX Explorer screenshot pending capture.",
     "sgci-app": "SGCI inventory CLI screenshot.",
     "campuslove": "CampusLove console application screenshot.",
@@ -61,26 +65,52 @@
     "formula1-webcomponents": "Formula 1 simulator web app screenshot."
   },
   "narratives": {
-    "spacex-explorer": [
+    "portfolio-react": [
       {
         "kind": "paragraph",
-        "text": "SpaceX Explorer is a mobile case study in doing Clean Architecture right on a small scope. The app surfaces launches, rockets, and crew members from the SpaceX v4 public API, but the value is in the layering — the UI layer owns nothing except Compose state and view models, the domain layer holds use cases and pure models, and the data layer handles HTTP, DTO mapping, and caching."
+        "text": "This portfolio is a full-stack project built with React 19, React Router 7 server rendering, TypeScript, and Tailwind CSS. Feature-based modules and typed project data keep the content and page components organized."
       },
-      { "kind": "heading", "text": "What it demonstrates" },
+      {
+        "kind": "heading",
+        "text": "Application and delivery"
+      },
       {
         "kind": "list",
         "items": [
-          "Clean Architecture with strict inward dependency flow",
-          "Hilt for dependency injection across modules",
-          "Kotlin Coroutines + Flow for async data streams",
-          "Jetpack Compose UI with hoisted state and preview-driven iteration",
-          "Retrofit + Moshi wiring against the SpaceX API v4"
+          "English and Spanish routes, content, and metadata through i18next",
+          "Contact forms validated with Zod and React Hook Form, with honeypot and rate limiting protection",
+          "Server-side email delivery through Resend",
+          "CSP nonce headers and an /api/health endpoint",
+          "Vercel deployment support, Vitest unit tests, and Playwright browser tests"
         ]
       },
-      { "kind": "heading", "text": "Why I built it" },
       {
         "kind": "paragraph",
-        "text": "I wanted a mobile surface to practice the same architecture boundaries I use on the backend, so the codebase looks more like a production Android app than a hobby project. Every feature — list, detail, filter — is its own slice that plugs into the same domain contracts."
+        "text": "I built the interface and the server-side contact flow, connecting form feedback, validation, email delivery, security headers, and deployment. The project includes unit tests and browser tests for the complete application."
+      }
+    ],
+    "spacex-explorer": [
+      {
+        "kind": "paragraph",
+        "text": "SpaceX Explorer is a native Android app for exploring SpaceX data through its public v4 API. I built it with Kotlin and Jetpack Compose, with Clean Architecture separating the interface, application logic, and data access."
+      },
+      {
+        "kind": "heading",
+        "text": "Architecture and API integration"
+      },
+      {
+        "kind": "list",
+        "items": [
+          "Jetpack Compose for the Android interface",
+          "Clean Architecture to separate responsibilities",
+          "Hilt for dependency injection",
+          "Kotlin Coroutines for asynchronous API calls",
+          "Integration with the public SpaceX API v4"
+        ]
+      },
+      {
+        "kind": "paragraph",
+        "text": "I built the Android interface and API integration, with separate layers for presentation, application logic, and data access."
       }
     ],
     "sgci-app": [
@@ -88,7 +118,10 @@
         "kind": "paragraph",
         "text": "SGCI is the project where I treated Clean Architecture as non-negotiable. The CLI is only the delivery mechanism — underneath, the domain layer models purchases, stock movements, promotional plans, and cash registers as aggregates with their own invariants. The application layer orchestrates use cases, and infrastructure adapts to whichever storage strategy the business needs."
       },
-      { "kind": "heading", "text": "Architecture highlights" },
+      {
+        "kind": "heading",
+        "text": "Architecture highlights"
+      },
       {
         "kind": "list",
         "items": [
@@ -109,7 +142,10 @@
         "kind": "paragraph",
         "text": "CampusLove was my first serious tour of PostgreSQL from the application side. Beyond the matchmaking surface, the project is a study of how to design schemas you can query fast, index thoughtfully, and migrate safely over time."
       },
-      { "kind": "heading", "text": "What I practiced" },
+      {
+        "kind": "heading",
+        "text": "What I practiced"
+      },
       {
         "kind": "list",
         "items": [
@@ -127,21 +163,24 @@
     "todo-list-flask": [
       {
         "kind": "paragraph",
-        "text": "My earliest shipped fullstack project. It's small, but every concern a real web app has is in there — routing, templating, forms, authentication, persistence, and a public deployment."
+        "text": "I built this task-management web app with Python and Flask in March 2023. SQLite stores the task data, and PythonAnywhere hosts the application."
       },
-      { "kind": "heading", "text": "What stuck with me" },
+      {
+        "kind": "heading",
+        "text": "A complete web application"
+      },
       {
         "kind": "list",
         "items": [
-          "Form handling and validation end-to-end",
-          "Password hashing and session management",
-          "Per-user data isolation at the SQL layer",
-          "A working public deployment behind a real URL"
+          "Flask routes and templates for task management",
+          "User registration, login, and per-user task lists",
+          "SQLite for persistent storage",
+          "Deployment on PythonAnywhere"
         ]
       },
       {
         "kind": "paragraph",
-        "text": "It's the project that taught me the difference between \"runs on my machine\" and \"ships.\" Every later project inherited those lessons."
+        "text": "It was an early opportunity to connect a web interface, server-side logic, persistent data, and a public deployment in one project."
       }
     ],
     "formula1-webcomponents": [
@@ -149,7 +188,10 @@
         "kind": "paragraph",
         "text": "The only retained frontend project in this portfolio — kept because it proves the range without leaning on a framework. Three.js does the 3D rendering, Bootstrap handles the tables and layout, and the glue is all native Web Components."
       },
-      { "kind": "heading", "text": "What makes it interesting" },
+      {
+        "kind": "heading",
+        "text": "What makes it interesting"
+      },
       {
         "kind": "list",
         "items": [
